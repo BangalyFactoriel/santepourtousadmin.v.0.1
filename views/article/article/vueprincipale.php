@@ -26,6 +26,7 @@
         <!--end::Sidebar secondary menu-->
     </div>
     <!--end::Sidebar-->
+
     <!--begin::Main-->
     <div class="app-main flex-column flex-row-fluid" id="kt_app_main">
         <!--begin::Content wrapper-->
@@ -90,12 +91,12 @@
                             <div class="d-flex justify-content-end" data-kt-user-table-toolbar="base">
 
                                 <!--begin::Add user-->
-                                <a href="javascript:;" onclick="$('#kt_cat_conge').reset()"
+                                <a href="<?= Yii::$app->request->baseUrl.'/'.md5('article_addarticle') ?>"
                                     class="btn btn-flex btn-sm btn-body btn-color-gray-600 h-35px bg-body fw-bold"
-                                    data-bs-toggle="modal" data-bs-target="#kt_modal_add_customer">
+                                    >
                                     <i class="ki-outline ki-plus fs-2">
                                     </i>
-                                    <?= Yii::t("app", 'btnajoutpblicite') ?>
+                                    <?= Yii::t("app", 'btn_ajout_article') ?>
                                 </a>
                                 <!--end::Add user-->
                             </div>
@@ -117,11 +118,10 @@
                             id="kt_datatable_zero_configuration">
 
                             <thead>
-                                <?php require_once('contenu/vuePrincipaleLst_tblHeader.php') ?>
+                                <?php require_once('contenu/article_header.php') ?>
 
                             </thead>
                             <tbody class="text-gray-600 fw-semibold" id="databody">
-                                <?php require_once('contenu/vuePrincipaleLst_tblBody.php') ?>
 
                             </tbody>
                         </table>
@@ -137,11 +137,11 @@
 
     </div>
     <!--end:::Main-->
+
 </div>
 <!--end::Wrapper container-->
 
 
 <?php
-require_once('contenu/addPubModal.php');
-require_once('script/script.php');
+    require_once('script/script.php');
 ?>

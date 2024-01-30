@@ -26,6 +26,7 @@
         <!--end::Sidebar secondary menu-->
     </div>
     <!--end::Sidebar-->
+
     <!--begin::Main-->
     <div class="app-main flex-column flex-row-fluid" id="kt_app_main">
         <!--begin::Content wrapper-->
@@ -137,12 +138,13 @@
 
     </div>
     <!--end:::Main-->
+
 </div>
 <!--end::Wrapper container-->
 
 
 <?php
-require_once('contenu/modalAddAction.php');
-require_once('contenu/vuePrincipaleUpdateInModal.php');
-require_once('script/script.php');
+    require_once('contenu/modalAddAction.php');
+    require_once('contenu/vuePrincipaleUpdateInModal.php');
+    require_once('script/script.php');
 ?>

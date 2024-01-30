@@ -52,12 +52,23 @@ class ArticleController extends Controller
         if(Yii::$app->request->isPost){
             die(var_dump($_POST));
         }
-        return $this->render('artile/vueprincipale.php');
+        return $this->render('article/vueprincipale.php');
 
 
     }
 
 
+    
+    public function actionAddarticle()
+    {
+
+        if(Yii::$app->request->isPost){
+            die(var_dump($_POST));
+        }
+        return $this->render('article/contenu/add_article.php');
+
+
+    }
     /*********************************************************************************************
      *                              FONCTION DE LA CATEGORIE
      * *******************************************************************************************

@@ -23,8 +23,8 @@ $config = [
             'class' => 'app\components\clientClass', //class pour les produits
         ],
 
-        'productClass' => [
-            'class' => 'app\components\productClass', //class pour les produits
+        'articleClass' => [
+            'class' => 'app\components\articleClass', //class pour les produits
         ],
 
         'accessClass' => [

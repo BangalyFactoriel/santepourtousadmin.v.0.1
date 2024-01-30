@@ -26,6 +26,7 @@
         <!--end::Sidebar secondary menu-->
     </div>
     <!--end::Sidebar-->
+
     <!--begin::Main-->
     <div class="app-main flex-column flex-row-fluid" id="kt_app_main">
         <!--begin::Content wrapper-->
@@ -95,7 +96,7 @@
                                     data-bs-toggle="modal" data-bs-target="#kt_modal_add_customer">
                                     <i class="ki-outline ki-plus fs-2">
                                     </i>
-                                    <?= Yii::t("app", 'btnajoutpblicite') ?>
+                                    <?= Yii::t("app", 'btn_add_author') ?>
                                 </a>
                                 <!--end::Add user-->
                             </div>
@@ -121,7 +122,6 @@
 
                             </thead>
                             <tbody class="text-gray-600 fw-semibold" id="databody">
-                                <?php require_once('contenu/vuePrincipaleLst_tblBody.php') ?>
 
                             </tbody>
                         </table>
@@ -137,11 +137,12 @@
 
     </div>
     <!--end:::Main-->
+
 </div>
 <!--end::Wrapper container-->
 
 
 <?php
-require_once('contenu/addPubModal.php');
-require_once('script/script.php');
+    require_once('contenu/add_author.php');
+    require_once('script/script.php');
 ?>

@@ -119,8 +119,11 @@ $config = [
                 md5('article_publicite') => 'article/publicite',
                 md5('article_reference') => 'article/reference',
                 md5('article_article') => 'article/article',
+                md5('article_addarticle') => 'article/addarticle',
              
-        
+                //auteur
+                md5('auteur_liste') => 'auteur/liste',
+
                 //parametre
                 md5('config_params') =>'config/params',
         

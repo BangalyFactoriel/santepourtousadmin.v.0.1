@@ -49,6 +49,6 @@ return [
 
    'visiteur' => [],
 
-   'menuadmin' => 'site_index@article,article_categories,article_publicite,article_reference,article_article,',
+   'menuadmin' => 'site_index@article,article_categories,article_publicite,article_reference,article_article,@auteur,auteur_liste,',
 
 ];

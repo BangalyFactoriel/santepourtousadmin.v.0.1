@@ -73,9 +73,7 @@ class ArticleController extends Controller
                     break;
             }
         }
-        return $this->render('artile/vueprincipale.php');
-
-
+        return $this->render('article/vueprincipale.php');
     }
 
     public function actionAddarticle()

@@ -6,7 +6,6 @@
 			</h5>
 		</div>
 		<div class="card-body">
-
 			<form id="kt_productCats" class="form fv-plugins-bootstrap5 fv-plugins-framework" method="post"
 				action="<?= Yii::$app->request->baseUrl . "/" . md5("article_article") ?>">
 				<input type="hidden" name="_csrf" value="<?= Yii::$app->request->getCsrfToken() ?>" />
@@ -18,45 +17,32 @@
 					data-select2-id="select2-data-kt_modal_add_customer_scroll">
 
 					<!--begin::Input group-->
-
 					<div class="row">
 						<!--begin::Block-->
-
-						
 						<div class="row">
 							<div class="col-md-12">
-							<div class="py-5" id="reapeterFieldImage">
-								<div class="rounded border p-10">
-									<!--begin::Repeater-->
-									<div id="kt_docs_repeater_basic_img">
-										<!--begin::Form group-->
-										<div class="form-group">
-											<div data-repeater-list="kt_docs_repeater_basic_img">
-												<div data-repeater-item>
-													<div class="form-group row mb-5">
-														<div class="col-md-3 " id="">
-															<label class="required fw-semibold fs-6 mb-2">
-																<?= yii::t("app", 'media_type') ?>
-															</label>
-															<select name="media_type" id="mediaTypeField"
-																onchange="handleChage(this)"
-																class="form-select form-select-solid"
-																data-kt-select2="true">
-																<option value="0">Choisir un type de fichier</option>
-																<option value="1">Photo</option>
-																<option value="2">Audio</option>
-																<option value="3">Video</option>
-															</select>
-														</div>
-														<!-- <div class="col-md-6" id="imageField">
-															<label class="required fw-semibold fs-6 mb-2">
-																<?= yii::t("app", 'article_image') ?>
-															</label>
-															<input type="file" class="form-control mb-2 mb-md-0"
-																id="mediaInput" />
-														</div> -->
-														<!-- begin image -->
-														<div class="fv-row mb-7 fv-plugins-icon-container col-md-3">
+								<!--begin::Repeater-->
+								<div id="kt_docs_repeater_advanced">
+									<!--begin::Form group-->
+									<div class="form-group">
+										<div data-repeater-list="kt_docs_repeater_advanced">
+											<div data-repeater-item>
+												<div class="form-group row mb-5">
+													<div class="col-md-3">
+														<label class="form-label">
+															<?= yii::t("app", 'media_type') ?>:
+														</label>
+														<select class="form-select" data-kt-repeater="select2"
+															onchange="handleChange(this)" data-kt-select2="true">
+															<option value="0">Choisir un fichier</option>
+															<option value="1">Photo</option>
+															<option value="2">Audio</option>
+															<option value="3">Video</option>
+														</select>
+													</div>
+													<div class="col-md-3">
+														<div class="fv-row mb-7 fv-plugins-icon-container col-md-3"
+															id="imgDiv">
 															<style>
 																.image-input-placeholder {
 																	background-image: url('assets/media/svg/files/blank-image.svg');
@@ -122,43 +108,49 @@
 																*.png, *.jpg et *.jpeg</div>
 															<!--end::Description-->
 														</div>
-														<!-- end image -->
-														<div class="col-md-3">
-															<a href="javascript:;" data-repeater-delete
-																class="btn btn-sm btn-flex flex-center btn-light-danger mt-3 mt-md-9">
-																<i class="ki-duotone ki-trash fs-5"><span
-																		class="path1"></span><span
-																		class="path2"></span><span
-																		class="path3"></span><span
-																		class="path4"></span><span
-																		class="path5"></span></i>
-																Delete
-															</a>
+
+													</div>
+													<div class="col-md-4">
+														<div class="col-md-6" id="audDiv">
+															<label class="required fw-semibold fs-6 mb-2">
+																<?= yii::t("app", 'audio_file') ?>
+															</label>
+															<input type="file" class="form-control mb-2 mb-md-0"
+																id="mediaInput" />
 														</div>
+													</div>
+													<div class="col-md-2">
+														<a href="javascript:;" data-repeater-delete
+															class="btn btn-flex btn-sm btn-light-danger mt-3 mt-md-9">
+															<i class="ki-duotone ki-trash fs-5"><span
+																	class="path1"></span><span
+																	class="path2"></span><span
+																	class="path3"></span><span
+																	class="path4"></span><span class="path5"></span></i>
+															Supprimer
+														</a>
 													</div>
 												</div>
 											</div>
 										</div>
-										<!--end::Form group-->
-
-										<!--begin::Form group-->
-										<div class="form-group">
-											<a href="javascript:;" data-repeater-create
-												class="btn btn-flex flex-center btn-light-primary">
-												<i class="ki-duotone ki-plus fs-3"></i> Ajouter
-											</a>
-										</div>
-										<!--end::Form group-->
 									</div>
-									<!--end::Repeater-->
+									<!--end::Form group-->
+
+									<!--begin::BntAdd Form group-->
+									<div class="form-group">
+										<a href="javascript:;" data-repeater-create
+											class="btn btn-flex btn-light-primary">
+											<i class="ki-duotone ki-plus fs-3"></i> Ajouter
+										</a>
+									</div>
+									<!--end::Form group-->
 								</div>
+								<!--end::Repeater-->
 							</div>
 						</div>
-						</div>
 
-						<!--end::Block-->
-
-						<!-- ================================================ -->
+						<!-- =========================================== -->
+						<!--begin::Block-->
 
 						<div class="col-md-6">
 							<!--begin::Input group-->
@@ -283,9 +275,9 @@
 					</div>
 				</div>
 				<p>
+					<!-- data-bs-target="#kt_modal_add_customer_parent"  was in the input tag -->
 					<input type="button" value="<?= yii::t("app", "validecrop") ?>" id="image-getter"
-						data-bs-target="#kt_modal_add_customer_parent" data-bs-toggle="modal"
-						data-bs-target="#articleImageModal" class="btn btn-primary">
+						data-bs-toggle="modal" data-bs-target="#articleImageModal" class="btn btn-primary">
 				</p>
 				<a href="javascript:;" Class="btn btn-light me-3" id="retour" data-bs-toggle="modal"
 					data-bs-target="#articleImageModal"></a>
@@ -296,13 +288,20 @@
 
 <script>
 
-	function handleChage(param) {
+	document.getElementById("imgDiv").style.display = "block";
+	document.getElementById("audDiv").style.display = "none";
+	document.getElementById("vidDiv").style.display = "none";
+
+
+	function handleChange(param) {
 		var selectedValue = param.value;
+
 
 		// Afficher le champ d'entrée de fichier correspondant en fonction de la valeur sélectionnée
 		if (selectedValue === "1") {
-			$('#kt_docs_repeater_basic_img').repeater({
-				initEmpty: true,
+			//=============
+			$('#kt_docs_repeater_advanced').repeater({
+				initEmpty: false,
 
 				defaultValues: {
 					'text-input': 'foo'
@@ -310,18 +309,41 @@
 
 				show: function () {
 					$(this).slideDown();
+
+					// Re-init select2
+					// $(this).find('[data-kt-repeater="select2"]').select2();
+
+					// Re-init flatpickr
+					$(this).find('[data-kt-repeater="datepicker"]').flatpickr();
+
+					// Re-init tagify
+					new Tagify(this.querySelector('[data-kt-repeater="tagify"]'));
 				},
 
 				hide: function (deleteElement) {
 					$(this).slideUp(deleteElement);
+				},
+
+				ready: function () {
+					// Init select2
+					$('[data-kt-repeater="select2"]').select2();
+
+					// Init flatpickr
+					$('[data-kt-repeater="datepicker"]').flatpickr();
+
+					// Init Tagify
+					new Tagify(document.querySelector('[data-kt-repeater="tagify"]'));
 				}
 			});
-			document.getElementById("reapeterFieldImage").style.display = "block";
-			// document.getElementById("reapeterFieldAudio").style.display = "none";
-			// document.getElementById("reapeterFieldVideo").style.display = "none";
+			document.getElementById("imgDiv").style.display = "block";
+			document.getElementById("audDiv").style.display = "none";
+			document.getElementById("vidDiv").style.display = "none";
+
 		} else if (selectedValue === "2") {
-			$('#kt_docs_repeater_basic_aud').repeater({
-				initEmpty: true,
+			//=============
+
+			$('#kt_docs_repeater_advanced').repeater({
+				initEmpty: false,
 
 				defaultValues: {
 					'text-input': 'foo'
@@ -329,19 +351,42 @@
 
 				show: function () {
 					$(this).slideDown();
+
+					// Re-init select2
+					// $(this).find('[data-kt-repeater="select2"]').select2();
+
+					// Re-init flatpickr
+					$(this).find('[data-kt-repeater="datepicker"]').flatpickr();
+
+					// Re-init tagify
+					new Tagify(this.querySelector('[data-kt-repeater="tagify"]'));
 				},
 
 				hide: function (deleteElement) {
 					$(this).slideUp(deleteElement);
+				},
+
+				ready: function () {
+					// Init select2
+					$('[data-kt-repeater="select2"]').select2();
+
+					// Init flatpickr
+					$('[data-kt-repeater="datepicker"]').flatpickr();
+
+					// Init Tagify
+					new Tagify(document.querySelector('[data-kt-repeater="tagify"]'));
 				}
 			});
-			document.getElementById("reapeterFieldAudio").style.display = "block";
-			// document.getElementById("reapeterFieldImage").style.display = "none";
-			// document.getElementById("reapeterFieldVideo").style.display = "none";
+
+			document.getElementById("audDiv").style.display = "block";
+			document.getElementById("imgDiv").style.display = "none";
+			document.getElementById("vidDiv").style.display = "none";
+
 
 		} else if (selectedValue === "3") {
-			$('#kt_docs_repeater_basic_vid').repeater({
-				initEmpty: true,
+			//=========
+			$('#kt_docs_repeater_advanced').repeater({
+				initEmpty: false,
 
 				defaultValues: {
 					'text-input': 'foo'
@@ -349,23 +394,43 @@
 
 				show: function () {
 					$(this).slideDown();
+
+					// Re-init select2
+					// $(this).find('[data-kt-repeater="select2"]').select2();
+
+					// Re-init flatpickr
+					$(this).find('[data-kt-repeater="datepicker"]').flatpickr();
+
+					// Re-init tagify
+					new Tagify(this.querySelector('[data-kt-repeater="tagify"]'));
 				},
 
 				hide: function (deleteElement) {
 					$(this).slideUp(deleteElement);
+				},
+
+				ready: function () {
+					// Init select2
+					$('[data-kt-repeater="select2"]').select2();
+
+					// Init flatpickr
+					$('[data-kt-repeater="datepicker"]').flatpickr();
+
+					// Init Tagify
+					new Tagify(document.querySelector('[data-kt-repeater="tagify"]'));
 				}
 			});
-			document.getElementById("reapeterFieldVideo").style.display = "block";
-			// document.getElementById("reapeterFieldImage").style.display = "none";
-			// document.getElementById("reapeterFieldAudio").style.display = "none";
+
+			document.getElementById("vidDiv").style.display = "block";
+			document.getElementById("imgDiv").style.display = "none";
+			document.getElementById("audDiv").style.display = "none";
 		}
 		else {
-			document.getElementById("reapeterFieldImage").style.display = "none";
-			document.getElementById("reapeterFieldAudio").style.display = "none";
-			document.getElementById("reapeterFieldVideo").style.display = "none";
+			document.getElementById("vidDiv").style.display = "none";
+			document.getElementById("imgDiv").style.display = "none";
+			document.getElementById("audDiv").style.display = "none";
 		}
-
-	}
+	}// End handleChange()
 
 	cropper(document.getElementById('image-cropper'), {
 		area: [500, 400],

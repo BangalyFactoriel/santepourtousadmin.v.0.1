@@ -148,3 +148,128 @@
     require_once('contenu/vuePrincipaleUpdateInModal.php');
     require_once('script/script.php');
 ?>
+
+<div class="py-5" id="reapeterField">
+									<div class="rounded border p-10">
+										<!--begin::Repeater-->
+										<div id="kt_docs_repeater_basic">
+											<!--begin::Form group-->
+											<div class="form-group">
+												<div data-repeater-list="kt_docs_repeater_basic">
+													<div data-repeater-item>
+														<div class="form-group row mb-5">
+															<div class="col-md-3 " id="">
+																<label class="required fw-semibold fs-6 mb-2">
+																	<?= yii::t("app", 'media_type') ?>
+																</label>
+																<select name="media_type" id="mediaTypeField"
+																	onchange="handleChage(this)"
+																	class="form-select form-select-solid"
+																	data-kt-select2="true">
+																	<option value="0">Choisir un type de fichier
+																	</option>
+																	<option value="1">Photo</option>
+																	<option value="2">Audio</option>
+																	<option value="3">Video</option>
+																</select>
+															</div>
+															<!-- begin image -->
+															<div class="fv-row mb-7 fv-plugins-icon-container col-md-3"
+																id="imgDiv">
+																<style>
+																	.image-input-placeholder {
+																		background-image: url('assets/media/svg/files/blank-image.svg');
+																	}
+
+																	[data-theme="dark"] .image-input-placeholder {
+																		background-image: url('assets/media/svg/files/blank-image-dark.svg');
+																	}
+																</style>
+																<!--end::Image input placeholder-->
+																<div class="image-input image-input-empty image-input-outline image-input-placeholder mb-3"
+																	data-kt-image-input="true">
+																	<!--begin::Preview existing avatar-->
+																	<!--begin::Preview existing avatar-->
+																	<div id="image-cropper-result"
+																		class="image-input-wrapper w-150px  h-150px">
+																		<img style="width:150px; height:150px;">
+																	</div>
+																	<!--end::Preview existing avatar-->
+																	<!--end::Preview existing avatar-->
+																	<!--begin::Label-->
+																	<label
+																		class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow"
+																		data-kt-image-input-action="change"
+																		data-bs-toggle="tooltip" title="
+																			<?= yii::t("app", 'changephoto') ?>">
+																		<a href="javascript:;" Class="btn "
+																			data-bs-toggle="modal"
+																			data-bs-target="#articleImageModal">
+																			<i class="bi bi-pencil-fill fs-7"></i>
+																		</a>
+																		<!--begin::Inputs-->
+																		<input type="hidden" name="avatar_remove"
+																			id="avatar_remove" />
+																		<input type="text" id="photo" value=""
+																			name="photo" accept=".png, .jpg, .jpeg" />
+																		<br>
+																		<!--end::Inputs-->
+																	</label>
+																	<!--end::Label-->
+																	<!--begin::Cancel-->
+																	<span
+																		class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow"
+																		data-kt-image-input-action="cancel"
+																		data-bs-toggle="tooltip"
+																		aria-label="Cancel avatar"
+																		data-kt-initialized="1">
+																		<i class="bi bi-x fs-2"></i>
+																	</span>
+																	<!--end::Cancel-->
+																	<!--begin::Remove-->
+																	<span
+																		class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow"
+																		data-kt-image-input-action="remove"
+																		data-bs-toggle="tooltip"
+																		aria-label="Remove avatar"
+																		data-kt-initialized="1">
+																		<i class="bi bi-x fs-2"></i>
+																	</span>
+																	<!--end::Remove-->
+																</div>
+																<!--end::Image input-->
+																<!--begin::Description-->
+																<div class="text-muted fs-7">
+																	*.png, *.jpg et *.jpeg</div>
+																<!--end::Description-->
+															</div>
+															<!-- end image -->
+
+															<!-- begin audio -->
+															<div class="col-md-6" id="audDiv">
+																<label class="required fw-semibold fs-6 mb-2">
+																	<?= yii::t("app", 'audio_file') ?>
+																</label>
+																<input type="file" class="form-control mb-2 mb-md-0"
+																	id="mediaInput" />
+															</div>
+															<!-- end audio -->
+
+															<!-- begin video -->
+															<div class="col-md-6" id="vidDiv">
+																<label class="required fw-semibold fs-6 mb-2">
+																	<?= yii::t("app", 'video_file') ?>
+																</label>
+																<input type="file" class="form-control mb-2 mb-md-0"
+																	id="mediaInput" />
+															</div>
+															<!-- end video -->
+														</div>
+													</div>
+												</div>
+											</div>
+											<!--end::Form group-->
+										</div>
+										<!--end::Repeater-->
+									</div>
+								</div>

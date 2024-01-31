@@ -1,6 +1,6 @@
 <!--begin::Form-->
 
-<div class="modal fade" id="kt_modal_add_customer" tabindex="-1" style="display: none;" aria-hidden="true">
+<div class="modal fade" id="modalupdate" tabindex="-1" style="display: none;" aria-hidden="true">
 	<!--begin::Modal dialog-->
 	<div class="modal-dialog modal-dialog-centered mw-650px" data-select2-id="select2-data-130-0luo">
 		<!--begin::Modal content-->
@@ -17,16 +17,32 @@
 			<!--begin::Modal body-->
 			<div class="modal-body py-10 px-lg-17">
 				<!--begin::Scroll-->
-				<form id="kt_productCats" class="form fv-plugins-bootstrap5 fv-plugins-framework" method="post"
+				<form id="kt_updatereference" class="form fv-plugins-bootstrap5 fv-plugins-framework" method="post"
 					action="<?= Yii::$app->request->baseUrl . "/" . md5("article_reference") ?>">
 					<input type="hidden" name="_csrf" value="<?= Yii::$app->request->getCsrfToken() ?>" />
-					<input type="hidden" name="action_key" id="action_key" value="" />
-					<input type="hidden" name="action_on_this" id="action_on_this" value="" />
+					<input type="hidden" name="action_key" id="action_keyupdate" value="" />
+					<input type="hidden" name="code" id="action_on_thisupdate" value="" />
 					<div class=" me-n7 pe-7" data-kt-scroll-activate="{default: false, lg: true}"
 						data-kt-scroll-max-height="auto" data-kt-scroll-dependencies="#kt_modal_add_customer_header"
 						data-kt-scroll-wrappers="#kt_modal_add_customer_scroll" data-kt-scroll-offset="300px" style=""
 						data-select2-id="select2-data-kt_modal_add_customer_scroll">
 
+						<!--begin::Input group-->
+						<div class="fv-row mb-12">
+							<label class="col-sm-4 form-label">
+								<?= Yii::t('app', 'statut') ?> :
+							</label>
+							<div class="col-sm-12">
+								<select class="form-select" name="statutCatUpdate" id="statutCatUpdate">
+									<option value="1">
+										<?= Yii::t('app', 'active') ?>
+									</option>
+									<option value="2">
+										<?= Yii::t('app', 'suprime') ?>
+									</option>
+								</select>
+							</div>
+						</div>
 						<!--begin::Input group-->
 						<div class="fv-row mb-7 fv-plugins-icon-container">
 							<!--begin::Label-->
@@ -35,7 +51,7 @@
 							</label>
 							<!--end::Label-->
 							<!--begin::Input-->
-							<input type="text" name="label" id="labelField"
+							<input type="text" name="labelupdate" id="labelFieldupdate"
 								class="form-control border-dark form-control-solid mb-3 mb-lg-0 " />
 							<!--end::Input-->
 							<div class="fv-plugins-message-container invalid-feedback"></div>
@@ -48,7 +64,7 @@
 								<?= yii::t("app", 'ref_desc') ?>
 							</label>
 							<!--end::Label-->
-							<textarea type="text" name="description" id="descriptionField"
+							<textarea type="text" name="descriptionupdate" id="descriptionFieldupdate"
 								class="form-control border-dark form-control-solid mb-3 mb-lg-0 ">
 							</textarea>
 							<!--end::Input-->
@@ -69,7 +85,7 @@
 				</button>
 				<!--end::Button-->
 				<!--begin::Button-->
-				<button id="btn-add-ref" Class="btn btn-circle btn-primary" onclick="add()">
+				<button id="btn-update-ref" Class="btn btn-circle btn-primary" onclick="update()">
 					<span class="indicator-label">
 						<?= yii::t("app", 'btnAddRef') ?>
 					</span>

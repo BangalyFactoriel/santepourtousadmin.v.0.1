@@ -7,7 +7,7 @@
             </div>
 
             <form id="CategorieUpdate" class="form fv-plugins-bootstrap5 fv-plugins-framework"
-                action="<?= Yii::$app->request->baseUrl . "/" . md5("produit_categories") ?>" method="post">
+                action="<?= Yii::$app->request->baseUrl . "/" . md5("article_categories") ?>" method="post">
                 <input type="hidden" name="_csrf" value="<?= Yii::$app->request->getCsrfToken() ?>" />
                 <input type="hidden" name="action_key" class="action_key" value="" />
                 <input type="hidden" name="action_on_this" class="action_on_this" value="" />

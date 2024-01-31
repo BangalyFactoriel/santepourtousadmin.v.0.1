@@ -1,19 +1,13 @@
-<?php
-
+<?php   
 $url = Yii::$app->request->baseUrl . "/" . md5("visiteur_unicitelibelle");
-// $csrf = Yii::$app->request->getCsrfToken();
-$urlajax = Yii::$app->request->baseUrl . "/" . md5("produit_ajax");
- $csrf = Yii::$app->request->getCsrfToken();
-// $caseValue = md5(strtolower('uniciteCat'));
-
-
+$urlajax = Yii::$app->request->baseUrl . "/" . md5("article_ajax");
+$csrf = Yii::$app->request->getCsrfToken();
 ?>
 
 <script>
 
     // script d'ajout d'une catégorie
     function add() {
-    
         var button = document.querySelector("#btnadd");
         $("#btnadd").prop("disabled", true);
         //--- @ --- Initialiser variables et verification si les champs exisés sont remplie ---- @ ---//
@@ -29,28 +23,29 @@ $urlajax = Yii::$app->request->baseUrl . "/" . md5("produit_ajax");
             $("#btnadd").prop("disabled", false);
             return false;
         }
+
         //**********************************verification de l'unicité du nom de catégorie************************
-        var productCatNames = document.getElementById('productCatNames').value;
+        var CatNames = document.getElementById('productCatNames').value;
         $.post(
             '<?= $url ?>',
 
             {
                 _csrf: '<?= $csrf ?>',
-                productCatNames: productCatNames,
+                CatNames: CatNames,
                 action_key: '<?= md5(strtolower('uniciteCat')) ?>'
             },
             function (response) {
-                // console.log(response);
+                console.log(response);
                 if (response) {
                     message('<?= Yii::t("app", "libexiste") ?>', 'error');
                     button.removeAttribute("data-kt-indicator");
                     $("#btnadd").prop("disabled", false);
-                   
+
                 } else {
 
                     $('#action_key').val("<?= md5('addcategorie') ?>");
                     $('#kt_productCats').submit();
-                   
+
 
                 }
 
@@ -59,31 +54,31 @@ $urlajax = Yii::$app->request->baseUrl . "/" . md5("produit_ajax");
     }
 
 
-    function productCategorie_update(){
+    function productCategorie_update() {
         // alert('dd');
 
-      
-		var button = document.querySelector("#updateproduitup");
-		$('#updateproduitup').prop('disabled', true);
 
-		var index = 1;
-		var requiredField = ['productCatNameUpdate'];
+        var button = document.querySelector("#updateproduitup");
+        $('#updateproduitup').prop('disabled', true);
 
-		var search = window.location.search;
+        var index = 1;
+        var requiredField = ['productCatNameUpdate'];
 
-		var formValidation = false;
-		button.setAttribute("data-kt-indicator", "on");
+        var search = window.location.search;
 
-		//--- @ --- Validation champs du formulaire ---- @ ---//
-		formValidation = formValidator(index, requiredField);
-		if (formValidation !== true) {
-			button.removeAttribute("data-kt-indicator");
-			$('#updateproduitup').prop('disabled', false);
+        var formValidation = false;
+        button.setAttribute("data-kt-indicator", "on");
 
-			return false;
-		}
-		$('.action_key').val("<?= md5('updateCategorie') ?>");
-		$('#CategorieUpdate').submit();
+        //--- @ --- Validation champs du formulaire ---- @ ---//
+        formValidation = formValidator(index, requiredField);
+        if (formValidation !== true) {
+            button.removeAttribute("data-kt-indicator");
+            $('#updateproduitup').prop('disabled', false);
+
+            return false;
+        }
+        $('.action_key').val("<?= md5('updateCategorie') ?>");
+        $('#CategorieUpdate').submit();
     }
 
 
@@ -94,15 +89,11 @@ $urlajax = Yii::$app->request->baseUrl . "/" . md5("produit_ajax");
         var button = document.querySelector("#bntfiltree");
         button.setAttribute("data-kt-indicator", "on");
         ch = $('#donneeRecherche').val();
-       
+
         limit = $('#limit').val();
-        // alert(limit);
-        //chargement du loading
         const loadingEl = document.createElement("div");
         document.body.prepend(loadingEl);
         KTApp.showPageLoading();
-     
-        // Show page loading
         $.post(
             '<?= $urlajax ?>',
 

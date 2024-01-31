@@ -111,22 +111,22 @@
                     <!--begin::Card body-->
                     <div class="card-body py-4">
                         <!--begin::Table-->
-                        <?= Yii::$app->session->getFlash('flashmsg');
-                        Yii::$app->session->removeFlash('flashmsg'); ?>
 
-                        <table class="table align-middle table-row-dashed fs-6 gy-5"
-                            id="kt_datatable_zero_configuration">
+                        <div class="table-responsive">
+                            <table class="table align-middle table-row-dashed fs-6 gy-5"
+                                id="kt_datatable_zero_configuration">
 
-                            <thead>
-                                <?php require_once('contenu/vuePrincipaleLst_tblHeader.php') ?>
+                                <thead>
+                                    <?php require_once('contenu/vuePrincipaleLst_tblHeader.php') ?>
 
-                            </thead>
-                            <tbody class="text-gray-600 fw-semibold" id="databody">
-                                <?php require_once('contenu/vuePrincipaleLst_tblBody.php') ?>
+                                </thead>
+                                <tbody class="text-gray-600 fw-semibold" id="databody">
+                                    <?php require_once('contenu/vuePrincipaleLst_tblBody.php') ?>
 
-                            </tbody>
-                        </table>
-                        <!--end::Table-->
+                                </tbody>
+                            </table>
+                            <!--end::Table-->
+                        </div>
                     </div>
                     <!--end::Card body-->
                 </div>
@@ -144,7 +144,7 @@
 
 
 <?php
-    require_once('contenu/modalAddAction.php');
-    require_once('contenu/vuePrincipaleUpdateInModal.php');
-    require_once('script/script.php');
+require_once('contenu/modalAddAction.php');
+require_once('contenu/vuePrincipaleUpdateInModal.php');
+require_once('script/script.php');
 ?>

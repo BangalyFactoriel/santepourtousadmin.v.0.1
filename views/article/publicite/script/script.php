@@ -13,7 +13,6 @@ $csrf = Yii::$app->request->getCsrfToken();
 
     // script d'ajout d'une catégorie
     function add() {
-        console.log('test js')
         var button = document.querySelector("#btn-add-pub");
         $("#btn-add-pub").prop("disabled", true);
         //--- @ --- Initialiser variables et verification si les champs exisés sont remplie ---- @ ---//
@@ -29,10 +28,8 @@ $csrf = Yii::$app->request->getCsrfToken();
             $("#btn-add-pub").prop("disabled", false);
             return false;
         }
-
-        //============================================
-        
-        //============================================
+        $('#action_key').val("<?= md5('addpublicites') ?>");
+        $('#kt_productCats').submit();
     }
 
 

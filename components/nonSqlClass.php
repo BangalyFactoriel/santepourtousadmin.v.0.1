@@ -20,6 +20,22 @@ use GuzzleHttp\RequestOptions;
 class nonSqlClass extends Component
 {
 
+
+
+  public function datecontrole()
+  {
+    // Obtenir la date actuelle
+    $dateActuelle = new \DateTime();
+
+    // Obtenir le début du mois
+    $debutMois = $dateActuelle->modify('first day of this month')->format('Y-m-d');
+
+    // Obtenir la fin du mois
+    $finMois = $dateActuelle->modify('last day of this month')->format('Y-m-d');
+
+    return ['debutMois' => $debutMois, 'finMois' => $finMois];
+  }
+
   public function listEntite()
   {
     $typeEntite = [

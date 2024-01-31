@@ -17,6 +17,35 @@ class articleClass extends Component
   }
 
 
+
+  public function getRealLimit($limit)
+  {
+    $rLimit = Null;
+    if (isset($limit)) {
+      switch ($limit) {
+        case 1:
+          $rLimit = 10;
+          break;
+        case 2:
+          $rLimit = 20;
+          break;
+        case 3:
+          $rLimit = 30;
+          break;
+        case 4:
+          $rLimit = 40;
+          break;
+        case 5:
+          $rLimit = 50;
+          break;
+        case 10:
+          $rLimit = 10000;
+          break;
+      }
+    }
+    return $rLimit;
+  }
+
   /*********************************************************************************************
    *                              CRUDE  CATEGORIE
    * *******************************************************************************************
@@ -129,5 +158,59 @@ class articleClass extends Component
        die($th->getMessage());
      }
    }
+
+     /*********************************************************************************************
+   *                              SEARCH FOR ARTICLE
+   * *******************************************************************************************
+   */
+  public function searchforfiltre($table,$donneeRecherche = '', $limit = '1')
+  {
+    $query = null;
+
+    $limit = Yii::$app->articleClass->getRealLimit($limit);
+    if (isset($limit) && $limit > 0) {
+      $limit = 'LIMIT ' . $limit;
+    }
+
+    try {
+      $req = $this->connect->createCommand('SELECT * FROM '.$table.' where 
+         	(libelle like :donnerechercher)
+          and statut=:statut
+                ORDER BY id desc ' . $limit)
+
+        ->bindValues([':donnerechercher' => '%' . $donneeRecherche . '%',':statut'=>'1'])
+        ->queryAll();
+      return $req;
+    } catch (\Throwable $th) {
+      die($th->getMessage());
+    }
+
+  }
+
+  public function searchforfiltrepublicite($table,$donneeRecherche = '', $limit = '1',$datedebut,$datefin)
+  {
+    $query = null;
+
+    $limit = Yii::$app->articleClass->getRealLimit($limit);
+    if (isset($limit) && $limit > 0) {
+      $limit = 'LIMIT ' . $limit;
+    }
+
+    try {
+      $req = $this->connect->createCommand('SELECT * FROM '.$table.' where 
+         	(titre like :donnerechercher)
+          and statut=:statut
+          and  dateajout BETWEEN :datedebut and  :datefin 
+
+                ORDER BY id desc ' . $limit)
+
+        ->bindValues([':donnerechercher' => '%' . $donneeRecherche . '%',':statut'=>'1',':datedebut'=>$datedebut,':datefin'=>$datefin])
+        ->queryAll();
+      return $req;
+    } catch (\Throwable $th) {
+      die($th->getMessage());
+    }
+
+  }
 
 }

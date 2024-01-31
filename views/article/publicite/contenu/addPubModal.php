@@ -48,7 +48,7 @@
 								</div>
 								<!--end::Preview existing avatar-->
 								<!--end::Preview existing avatar-->
-								
+
 								<!--begin::Label-->
 								<label
 									class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow"
@@ -59,7 +59,7 @@
 										<i class="bi bi-pencil-fill fs-7"></i>
 									</a>
 									<!--begin::Inputs-->
-									<input type="hidden" name="avatar_remove"  id="avatar_remove"/>
+									<input type="hidden" name="avatar_remove" id="avatar_remove" />
 									<input type="text" id="photo" value="" name="photo" accept=".png, .jpg, .jpeg" />
 									<br>
 									<!--end::Inputs-->
@@ -149,9 +149,13 @@
 								<?= yii::t("app", 'position') ?>
 							</label>
 							<!--end::Label-->
-							<input type="number" name="position" id="positionField"
-								class="form-control border-dark form-control-solid mb-3 mb-lg-0 ">
-							</input>
+							<select name="position" id="positionField" class="form-control form-select border-dark form-control-solid mb-3 mb-lg-0 ">
+								<option value="1">Haut</option>
+								<option value="2">Milieu</option>
+
+								<option value="3">Bas</option>
+							</select>
+						
 							<!--end::Input-->
 							<div class="fv-plugins-message-container invalid-feedback"></div>
 						</div>
@@ -201,8 +205,8 @@
 				</div>
 				<p>
 					<input type="button" value="<?= yii::t("app", "validecrop") ?>" id="image-getter"
-						data-bs-target="#kt_modal_add_customer" data-bs-toggle="modal"
-						data-bs-target="#addPubModal" class="btn btn-primary">
+						data-bs-target="#kt_modal_add_customer" data-bs-toggle="modal" data-bs-target="#addPubModal"
+						class="btn btn-primary">
 				</p>
 				<a href="javascript:;" Class="btn btn-light me-3" id="retour" data-bs-toggle="modal"
 					data-bs-target="#addPubModal"></a>

@@ -113,19 +113,21 @@
                         <!--begin::Table-->
                         <?= Yii::$app->session->getFlash('flashmsg');
                         Yii::$app->session->removeFlash('flashmsg'); ?>
+                        <div class="table-responsive">
+                            <table class="table align-middle table-row-dashed fs-6 gy-5"
+                                id="kt_datatable_zero_configuration">
 
-                        <table class="table align-middle table-row-dashed fs-6 gy-5"
-                            id="kt_datatable_zero_configuration">
+                                <thead>
+                                    <?php require_once('contenu/refference_header.php') ?>
 
-                            <thead>
-                                <?php require_once('contenu/refference_header.php') ?>
+                                </thead>
+                                <tbody class="text-gray-600 fw-semibold" id="databody">
+                                    <?php require_once('contenu/refference_body.php') ?>
 
-                            </thead>
-                            <tbody class="text-gray-600 fw-semibold" id="databody">
-
-                            </tbody>
-                        </table>
-                        <!--end::Table-->
+                                </tbody>
+                            </table>
+                            <!--end::Table-->
+                        </div>
                     </div>
                     <!--end::Card body-->
                 </div>
@@ -143,6 +145,7 @@
 
 
 <?php
-    require_once('contenu/add_refference.php');
-    require_once('script/script.php');
+require_once('contenu/add_refference.php');
+require_once('contenu/update_refference.php');
+require_once('script/script.php');
 ?>

@@ -120,6 +120,7 @@ $config = [
                 md5('article_reference') => 'article/reference',
                 md5('article_article') => 'article/article',
                 md5('article_addarticle') => 'article/addarticle',
+                md5('article_ajax') => 'article/ajax',
              
                 //auteur
                 md5('auteur_liste') => 'auteur/liste',
@@ -128,6 +129,7 @@ $config = [
                 md5('config_params') =>'config/params',
         
                 //visiteurController
+                md5('visiteur_unicitelibelle') => 'visiteur/unicitelibelle',
             
                 md5('utilisateur_adduser') => 'utilisateur/adduser',
                 md5('utilisateur_ajax')=>'utilisateur/ajax',

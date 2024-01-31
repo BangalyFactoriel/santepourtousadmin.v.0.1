@@ -1,7 +1,7 @@
 <?php
 // die(var_dump($_POST));
-if (isset($listeCategorie) && sizeof($listeCategorie) > 0) {
-    foreach ($listeCategorie as $key => $data) {
+if (isset($categorie) && sizeof($categorie) > 0) {
+    foreach ($categorie as $key => $data) {
         $key2 = $key + 1;
         echo '
             <tr>

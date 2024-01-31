@@ -10,13 +10,21 @@ return [
     'btnEnrg'=>'Ajouter',
     'edit'=>'Modifier',
     'statut'=>'STATUT',
-
+    'libexiste'=>'Le libellé existe déjà',
+    'champsvide'=>'Veuillez remplir les champs obligatoires ',
     'article'=>'Article',
     'article_categories'=>'Categorie',
     'article_publicite'=>'Publicite',
     'article_reference'=>'Reference',
     'article_article'=>'Article',
     'btnajoutcategorie'=>'Ajouter une Categorie',
+    'veuillezp'=>' Veuillez patienter',
+    'veuillez'=>' Veuillez patienter',
+    'nomcategorie'=>'Libelle Categorie',
+    'enrgSuccess'=>'Enregistré avec succès',
+    'modifSuccess'=>'Modifier avec succès',
+    'active'=>'Active',
+    'suprime'=>'Supprimé',
 
     // Publicite
     'photo' => 'Photo',
@@ -30,6 +38,8 @@ return [
     'btnAddPub'=>'Ajouter',
     'btnEditPub'=>'Modifier',
     'btnajoutpblicite'=>'Ajouter une Publicité',
+    'datedebut'=>'Date debut',
+    'donneeRecherche'=>'Donner Rechercher',
 
     // Auteur
     'auteur_liste'=> 'Auteur',
@@ -67,6 +77,8 @@ return [
     'btnAddArticle'=>'Ajouter',
     'btnEditArticle'=>'Modifier',
     'btn_ajout_article'=>'Ajouter un article',
+
+
 
 ];
 ?>

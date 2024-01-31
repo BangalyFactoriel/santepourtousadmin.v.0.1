@@ -24,6 +24,8 @@ class mainClass extends Component
   }
 
 
+
+
 public function getdata($table){
   $query = null;
   try {

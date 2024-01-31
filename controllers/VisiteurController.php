@@ -22,72 +22,23 @@ class VisiteurController extends Controller
     //  die(var_dump($_POST));
     switch ($_POST['action_key']) {
 
-      case md5(strtolower('addfournisseur')) :
-        $code = Yii::$app->nonSqlClass->generateUniq();
 
-        return Yii::$app->productClass->addpfournisseur($code,$_POST['raisonsociale'],$_POST['email'],$_POST['tel'],$_POST['adresse']);
-      
-        break;
 
       case md5(strtolower('uniciteCat')):
-        $libCat = $_POST['productCatNames'];
-
-        $verifieUniciter = Yii::$app->mainClass->unicite('icopub.categorie', $libCat, 'libelle');
+        $libCat = $_POST['CatNames'];
+        $verifieUniciter = Yii::$app->mainClass->unicite('ste.categorie', $libCat, 'libelle');
         // die(var_dump($verifieUniciter));
         return $verifieUniciter;
         break;
-
-
-
-      case md5(strtolower('uniciteGrp')):
-
-        $productGroupName = $_POST['productGrpNames'];
-
-        $verifieUniciter = Yii::$app->mainClass->unicite('icopub.groupe', $productGroupName, 'libelle');
+    
+        
+      case md5(strtolower('uniciteref')):
+        $labelField = $_POST['labelField'];
+        $verifieUniciter = Yii::$app->mainClass->unicite('ste.reference', $labelField, 'libelle');
         return $verifieUniciter;
         break;
-
-        case md5(strtolower('uniciteGrpUpdate')):
-
-        $productGrpNameUpdate = $_POST['productGrpNameUpdate'];
-
-        $verifieUniciter = Yii::$app->mainClass->unicite('icopub.groupe', $productGrpNameUpdate, 'libelle');
-        return $verifieUniciter;
-        break;
-
-
-
-      case md5(strtolower('uniciteBanner')):
-
-        // die(var_dump($_POST));
-
-        $productBanNames = $_POST['productBanNames'];
-        // return $productBanNames;
-
-        $verifieUniciter = Yii::$app->mainClass->unicite('icopub.banner', $productBanNames, 'libelle');
-        return $verifieUniciter;
-
-        break;
-      case md5(strtolower('unirefUpdate')):
-
-        $productRefNameUpdate = $_POST['productRefNameUpdate'];
-
-        $verifieUniciter = Yii::$app->mainClass->unicite('icopub.reference', $productRefNameUpdate, 'libelle');
-        return $verifieUniciter;
-        break;
-      case md5(strtolower('uniref')):
-
-        $ref = $_POST['productRefNames'];
-
-        $verifieUniciter = Yii::$app->mainClass->unicite('icopub.reference', $ref, 'libelle');
-        return $verifieUniciter;
-        break;
-      case md5(strtolower('uniciteClient')):
-        // return $_POST;
-        $email = $_POST['email'];
-        $verifieUniciter = Yii::$app->mainClass->unicite('icopub.client', $email, 'email');
-        return $verifieUniciter;
-        break;
+    
+     
       case md5(strtolower('verifiermail')):
 
         $email = $_POST['email'];
@@ -100,14 +51,8 @@ class VisiteurController extends Controller
         return true;
 
         break;
-      case md5(strtolower('uniclient')):
+   
 
-        return Yii::$app->clientClass->uniclient($_POST['tel'], $_POST['email']);
-        break;
-      case md5(strtolower('unifournissuer')):
-
-        return Yii::$app->fournisseurClass->unifournissurs($_POST['tel'], $_POST['rsociale'], $_POST['email']);
-        break;
 
       default:
         # code...

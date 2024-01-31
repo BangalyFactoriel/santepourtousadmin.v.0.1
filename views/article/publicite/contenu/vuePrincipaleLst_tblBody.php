@@ -1,8 +1,25 @@
 <?php
 // die(var_dump($_POST));
-if (isset($listeCategorie) && sizeof($listeCategorie) > 0) {
-    foreach ($listeCategorie as $key => $data) {
+if (isset($publlicite) && sizeof($publlicite) > 0) {
+    foreach ($publlicite as $key => $data) {
         $key2 = $key + 1;
+        // die(var_dump($data));
+        switch ($data['positionnement']) {
+            case '1':
+                $posi = 'haut';
+                break;
+            case '2':
+                $posi = 'Milieu';
+                break;
+            case '3':
+                $posi = 'Bas';
+                break;
+
+            default:
+                $posi = '';
+
+                break;
+        }
         echo '
             <tr>
                 <td>' . $key2 . '</td>
@@ -13,10 +30,13 @@ if (isset($listeCategorie) && sizeof($listeCategorie) > 0) {
                     
                 </div>
                 </td>
-                <td>' . $data["title"] . '</td>
-                <td>' . $data["content"] . '</td>
+                <td>' . $data["titre"] . '</td>
+                <td>' . $data["contenue"] . '</td>
+                <td>' . $posi . '</td>
+                <td>' . $data['datedebut'] . '</td>
+                <td>' . $data['datefin'] . '</td>
                 <td>
-                <a href="javascript:;" Class="btn btn-circle btn-primary " onClick="updatebackground(\''.yii::$app->request->baseUrl . '/web/assets/media/uploads/photo/' . $data['photo'] .'\');$(\'#action_key\').val(\'' . md5('catalog_updateCat') . '\');$(\'#avatar_removeupdateupdate\').val(\'' .$data['photo']. '\');$(\'#productCatNameUpdate\').val(\'' . $data["libelle"] . '\'); $(\'#productCatDescUpdate\').val(\'' . ($data["description"]) . '\'); $(\'#statutCatUpdate\').val(\'' . $data["statut"] . '\'); $(\'.action_on_this\').val(\''.$data["code"].'\'); $(\'#updateProductCategory\').modal(\'show\');"><i class="fa fa-indent"></i>' . Yii::t("app", "edit") . '</a>
+                <a href="javascript:;" Class="btn btn-circle btn-primary " onClick="updatebackground(\'' . yii::$app->request->baseUrl . '/web/assets/media/uploads/photo/' . $data['photo'] . '\');$(\'#action_key\').val(\'' . md5('catalog_updateCat') . '\');$(\'#avatar_removeupdateupdate\').val(\'' . $data['photo'] . '\');$(\'#productCatNameUpdate\').val(\'' . $data["titre"] . '\'); $(\'#productCatDescUpdate\').val(\'' . ($data["contenue"]) . '\'); $(\'#statutCatUpdate\').val(\'' . $data["statut"] . '\'); $(\'.action_on_this\').val(\'' . $data["code"] . '\'); $(\'#updatepublicite\').modal(\'show\');"><i class="fa fa-indent"></i>' . Yii::t("app", "edit") . '</a>
                 </td>
             </tr>
             ';
@@ -27,8 +47,8 @@ if (isset($listeCategorie) && sizeof($listeCategorie) > 0) {
 
 
 <script>
- function   updatebackground(photo){
-    $("#imgbackground").css("background-image", "url("+photo+")");
-    
+    function updatebackground(photo) {
+        $("#imgbackground").css("background-image", "url(" + photo + ")");
+
     }
 </script>

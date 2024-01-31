@@ -1,3 +1,8 @@
+<?php
+$date = Yii::$app->nonSqlClass->datecontrole();
+$datedebut = $date['debutMois'];
+$datefin = $date['finMois'];
+?>
 <div class="app-container container-xxl d-flex">
     <!--begin::Sidebar-->
     <div id="kt_app_sidebar" class="app-sidebar  align-self-start" data-kt-drawer="true"
@@ -38,50 +43,7 @@
                     <div class="card-header  bg-primary border-0 pt-2">
                         <!--begin::Card title-->
                         <div class="card-title">
-                            <!--begin::Search-->
-                            <div class="row mb-2 mt-0">
-
-                                <div class="col-md-4 mt-2">
-                                    <select class="form-select select2 w-md-150px  " id="limit" name="limit">
-                                        <option value="1" <?= isset($_POST[Yii::$app->params['limit']]) ? $_POST[Yii::$app->params['limit']] == 1 ? 'selected' : '' : '' ?>>
-                                            1 - 10</option>
-                                        <option value="2" <?= isset($_POST[Yii::$app->params['limit']]) ? $_POST[Yii::$app->params['limit']] == 2 ? 'selected' : '' : '' ?>>
-                                            1 - 20</option>
-                                        <option value="3" <?= isset($_POST[Yii::$app->params['limit']]) ? $_POST[Yii::$app->params['limit']] == 3 ? 'selected' : '' : '' ?>>
-                                            1 - 30</option>
-                                        <option value="4" <?= isset($_POST[Yii::$app->params['limit']]) ? $_POST[Yii::$app->params['limit']] == 4 ? 'selected' : '' : '' ?>>
-                                            1 - 40</option>
-                                        <option value="5" <?= isset($_POST[Yii::$app->params['limit']]) ? $_POST[Yii::$app->params['limit']] == 5 ? 'selected' : '' : '' ?>>
-                                            1 - 50</option>
-                                        <option value="6" <?= isset($_POST[Yii::$app->params['limit']]) ? $_POST[Yii::$app->params['limit']] == 6 ? 'selected' : '' : '' ?>>
-                                            1 - 50 +</option>
-
-                                    </select>
-                                </div>
-                                <!--begin::Search-->
-                                <div class="col-md-6 mt-2">
-                                    <input type="text" data-kt-customer-table-filter="search" id="donneeRecherche"
-                                        name="donneeRecherche"
-                                        value="<?= isset($_POST['donneeRecherche']) ? $_POST['donneeRecherche'] : Null ?>"
-                                        class="form-control form-control-solid w-250px ps-15"
-                                        placeholder="<?= Yii::t('app', 'donneeRecherche') ?>">
-                                </div>
-                                <!--end::Search-->
-
-                                <div class="col-md-2 mt-2">
-                                    <a href="javascript:;" onclick="Filter()" class="btn btn-circle btn-secondary pe-10"
-                                        name="afficheBtn" id="bntfiltree">
-                                        <span class="indicator-label">
-                                            <?= yii::t("app", 'Filtrer') ?>
-                                        </span>
-                                        <span class="indicator-progress">
-                                            <?= yii::t("app", 'veuillezp') ?>
-                                            <span class="spinner-border spinner-border-sm align-middle ms-2"></span>
-                                        </span>
-                                    </a>
-                                </div>
-
-                            </div>
+                            <h1 class="text-white">Liste des publicités</h1>
                         </div>
                         <!--begin::Card title-->
                         <!--begin::Card toolbar-->
@@ -110,22 +72,84 @@
                     <!--begin::Card body-->
                     <div class="card-body py-4">
                         <!--begin::Table-->
-                        <?= Yii::$app->session->getFlash('flashmsg');
-                        Yii::$app->session->removeFlash('flashmsg'); ?>
+                        <!--begin::Search-->
+                        <div class="row mb-2 mt-0">
 
-                        <table class="table align-middle table-row-dashed fs-6 gy-5"
-                            id="kt_datatable_zero_configuration">
+                            <div class="col-md-2 mt-2">
+                                <select class="form-select select2   " id="limit" name="limit">
+                                    <option value="1" <?= isset($_POST[Yii::$app->params['limit']]) ? $_POST[Yii::$app->params['limit']] == 1 ? 'selected' : '' : '' ?>>
+                                        1 - 10</option>
+                                    <option value="2" <?= isset($_POST[Yii::$app->params['limit']]) ? $_POST[Yii::$app->params['limit']] == 2 ? 'selected' : '' : '' ?>>
+                                        1 - 20</option>
+                                    <option value="3" <?= isset($_POST[Yii::$app->params['limit']]) ? $_POST[Yii::$app->params['limit']] == 3 ? 'selected' : '' : '' ?>>
+                                        1 - 30</option>
+                                    <option value="4" <?= isset($_POST[Yii::$app->params['limit']]) ? $_POST[Yii::$app->params['limit']] == 4 ? 'selected' : '' : '' ?>>
+                                        1 - 40</option>
+                                    <option value="5" <?= isset($_POST[Yii::$app->params['limit']]) ? $_POST[Yii::$app->params['limit']] == 5 ? 'selected' : '' : '' ?>>
+                                        1 - 50</option>
+                                    <option value="6" <?= isset($_POST[Yii::$app->params['limit']]) ? $_POST[Yii::$app->params['limit']] == 6 ? 'selected' : '' : '' ?>>
+                                        1 - 50 +</option>
 
-                            <thead>
-                                <?php require_once('contenu/vuePrincipaleLst_tblHeader.php') ?>
+                                </select>
+                            </div>
+                            <!--begin::Search-->
+                            <div class="col-md-3 mt-2">
+                                <input type="text" data-kt-customer-table-filter="search" id="donneeRecherche"
+                                    name="donneeRecherche"
+                                    value="<?= isset($_POST['donneeRecherche']) ? $_POST['donneeRecherche'] : Null ?>"
+                                    class="form-control form-control-solid border-dark ps-15"
+                                    placeholder="<?= Yii::t('app', '    ') ?>">
+                            </div>
+                            <!--end::Search-->
+                            <div class="col-md-1 col-lg-1 pt-2  fw-bold fs-3 mt-2 " style="margin-right: -40px;">
+                                <label class="text-end   " for="">
+                                    <?= Yii::t('app', 'DU') ?>
+                                </label>
+                            </div>
+                            <div class="col-md-2 col-lg-2 mt-2">
+                                <input type="date" name="datedebut" class="form-control  fs-7 ps-12" id=""
+                                    value="<?= $datedebut ?>">
+                            </div>
+                            <div class="col-md-1 col-lg-1 pt-2  fw-bold fs-3 mt-2 " style="margin-right: -40px;">
+                                <label class="text-end   " for="">
+                                    <?= Yii::t('app', 'au') ?>
+                                </label>
+                            </div>
+                            <div class="col-md-2 col-lg-2 mt-2 ">
+                                <input type="date" name="datefin" class="form-control  fs-7 ps-12" id=""
+                                    value="<?= $datefin ?>">
+                            </div>
 
-                            </thead>
-                            <tbody class="text-gray-600 fw-semibold" id="databody">
-                                <?php require_once('contenu/vuePrincipaleLst_tblBody.php') ?>
+                            <div class="col-md-1 mt-2">
+                                <a href="javascript:;" onclick="Filter()" class="btn btn-circle btn-secondary pe-10"
+                                    name="afficheBtn" id="bntfiltree">
+                                    <span class="indicator-label">
+                                        <?= yii::t("app", 'Filtrer') ?>
+                                    </span>
+                                    <span class="indicator-progress">
+                                        <?= yii::t("app", 'veuillezp') ?>
+                                        <span class="spinner-border spinner-border-sm align-middle ms-2"></span>
+                                    </span>
+                                </a>
+                            </div>
 
-                            </tbody>
-                        </table>
-                        <!--end::Table-->
+                        </div>
+                        <div class="table-responsive">
+
+                            <table class="table align-middle table-row-dashed fs-6 gy-5"
+                                id="kt_datatable_zero_configuration">
+
+                                <thead>
+                                    <?php require_once('contenu/vuePrincipaleLst_tblHeader.php') ?>
+
+                                </thead>
+                                <tbody class="text-gray-600 fw-semibold" id="databody">
+                                    <?php require_once('contenu/vuePrincipaleLst_tblBody.php') ?>
+
+                                </tbody>
+                            </table>
+                            <!--end::Table-->
+                        </div>
                     </div>
                     <!--end::Card body-->
                 </div>
@@ -143,5 +167,6 @@
 
 <?php
 require_once('contenu/addPubModal.php');
+require_once('contenu/vuePrincipalePubModal.php');
 require_once('script/script.php');
 ?>

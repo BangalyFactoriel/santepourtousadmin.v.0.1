@@ -38,11 +38,7 @@ class ArticleController extends Controller
                   
                 break;
             }
-
-
-
         }
-
     }
 
     /*********************************************************************************************
@@ -263,6 +259,4 @@ class ArticleController extends Controller
         return $this->render('publicite/vueprincipale.php',['publlicite'=>$publlicite]);
 
     }
-
-
 }

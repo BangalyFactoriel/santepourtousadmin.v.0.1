@@ -26,6 +26,9 @@ $config = [
         'articleClass' => [
             'class' => 'app\components\articleClass', //class pour les produits
         ],
+        'authorClass' => [
+            'class' => 'app\components\authorClass', //class pour les Auteurs
+        ],
 
         'accessClass' => [
             'class' => 'app\components\accessClass', //class pour les produits

@@ -51,6 +51,8 @@ return [
     'btnAddAuthor'=>'Ajouter',
     'btnEditAuthor'=>'Modifier',
     'btn_add_author'=>'Ajouter un auteur',
+    'btn_edit_author'=>'Modifier un auteur',
+
 
     // Refference
     'label'=> 'Libellé',

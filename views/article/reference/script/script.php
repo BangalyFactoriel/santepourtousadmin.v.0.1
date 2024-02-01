@@ -17,7 +17,7 @@ $csrf = Yii::$app->request->getCsrfToken();
         $("#btn-add-ref").prop("disabled", true);
         //--- @ --- Initialiser variables et verification si les champs exisés sont remplie ---- @ ---//
         var index = 1;
-        var requiredField = ['labelField'];
+    var requiredField = ['labelField'];
         var search = window.location.search;
         var formValidation = false;
         btnaddRef.setAttribute("data-kt-indicator", "on");
@@ -28,8 +28,6 @@ $csrf = Yii::$app->request->getCsrfToken();
             $("#btn-add-ref").prop("disabled", false);
             return false;
         }
-
-
 
         //**********************************verification de l'unicité du nom de catégorie************************
         var labelField = document.getElementById('labelField').value;
@@ -42,24 +40,19 @@ $csrf = Yii::$app->request->getCsrfToken();
                 action_key: '<?= md5(strtolower('uniciteref')) ?>'
             },
             function (response) {
-                console.log(response);
+                // console.log(response);
                 if (response) {
                     message('<?= Yii::t("app", "libexiste") ?>', 'error');
                     button.removeAttribute("data-kt-indicator");
                     $("#btn-add-ref").prop("disabled", false);
 
                 } else {
-
                     $('#action_key').val("<?= md5('addreference') ?>");
                     $('#kt_productCats').submit();
-
-
                 }
-
             }
         );
     }
-
 
     function update() {
         var btnaddRef = document.querySelector("#btn-update-ref");
@@ -82,11 +75,7 @@ $csrf = Yii::$app->request->getCsrfToken();
         $('#kt_updatereference').submit();
     }
 
-
-
-
-    
-    //*************************************** Filtrer un produit  ******************************
+  //*************************************** Filtrer un produit  ******************************
 
     function Filter() {
         // alert('dd');

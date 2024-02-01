@@ -119,10 +119,9 @@
 
                             <thead>
                                 <?php require_once('contenu/vuePrincipaleLst_tblHeader.php') ?>
-
                             </thead>
                             <tbody class="text-gray-600 fw-semibold" id="databody">
-
+                                <?php require_once('contenu/author_body.php') ?>
                             </tbody>
                         </table>
                         <!--end::Table-->
@@ -143,6 +142,7 @@
 
 
 <?php
-    require_once('contenu/add_author.php');
-    require_once('script/script.php');
+require_once('contenu/add_author.php');
+require_once('contenu/update_author.php');
+require_once('script/script.php');
 ?>

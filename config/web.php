@@ -115,6 +115,7 @@ $config = [
 
                 // siteController
                 md5('site_index') => 'site/index',
+                md5('login')=>'site/login',
                 '' => 'site/index',
                 //productController
               

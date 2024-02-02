@@ -679,3 +679,4 @@ class Controller extends Component implements ViewContextInterface
         }
     }
 }
+

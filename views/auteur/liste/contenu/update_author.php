@@ -33,7 +33,8 @@
 								<?= Yii::t('app', 'statut') ?> :
 							</label>
 							<div class="col-sm-12">
-								<select class="form-select" name="statut_auth_update" id="statutAuthUpdate">
+								<select class="form-select" name="statut_auth_update" id="statutAuthUpdate"
+									data-kt-repeater="select2" data-kt-select2="true">
 									<option value="1">
 										<?= Yii::t('app', 'active') ?>
 									</option>

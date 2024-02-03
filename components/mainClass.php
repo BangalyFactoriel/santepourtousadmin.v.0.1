@@ -58,7 +58,7 @@ public function getdata($table){
   public function uniciteCategorie($libelle)
   {
     try {
-      $req = $this->connect->createCommand ('SELECT COUNT(*) AS count FROM icopub.categorie WHERE libelle = :libelle')
+      $req = $this->connect->createCommand ('SELECT COUNT(*) AS count FROM ste.categorie WHERE libelle = :libelle')
         ->bindValue(':libelle', $libelle)
         ->queryAll();
       if ($req != null)
@@ -738,7 +738,7 @@ public function getdata($table){
   /** Methode : Demarrer le process d'authentification **/
   public function demarrer_auth($identifiant = '')
   {
-    $auth = $this->connect->createCommand('SELECT * FROM icopub.utilisateur
+    $auth = $this->connect->createCommand('SELECT * FROM ste.utilisateur
                                  WHERE identifiant=:identifiant
                                 and  utilisateur.statut=1')
       ->bindValue(':identifiant' , $identifiant)

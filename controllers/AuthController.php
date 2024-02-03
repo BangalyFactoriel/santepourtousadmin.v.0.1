@@ -60,6 +60,7 @@ class AuthController extends Controller {
 		if(!empty($identifiant)){
 
 			$auth = Yii::$app->mainClass->demarrer_auth($identifiant);
+			die(var_dump($auth));
 			
 			if(!is_array($auth) OR $auth==false){ # MEANING ,NO RECORD MATCHES THE userName SERCHED
 				return 22;

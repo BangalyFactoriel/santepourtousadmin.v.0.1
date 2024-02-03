@@ -48,7 +48,11 @@ return [
    'keysmsinfobib' => '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',
 
    'visiteur' => [],
+   'article' =>'article,article_categories,article_publicite,article_reference,article_article',
+   'auteur'=>'auteur,auteur_liste',
+   'utilisateur' => 'utilisateur,utilisateur_adduser,utilisateur_addgroupeuser',
+   'config' =>'config,config_config',
 
-   'menuadmin' => 'site_index@article,article_categories,article_publicite,article_reference,article_article,@auteur,auteur_liste,',
+   'menuadmin' => 'site_index@article,article_categories,article_publicite,article_reference,article_article,@auteur,auteur_liste,@utilisateur,utilisateur_adduser,utilisateur_addgroupeuser,',
 
 ];

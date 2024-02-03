@@ -26,7 +26,7 @@
    
       public function mettreStatPresenceSaltAJour($salt='', $userCode)
       {
-        $stmt = $this->connect->createCommand('update icopub.utilisateur set salt=:salt, useractif=:useractif where code=:code')
+        $stmt = $this->connect->createCommand('update ste.utilisateur set salt=:salt, useractif=:useractif where code=:code')
         ->bindValues([':code'=>$userCode, ':useractif'=>1, ':salt'=>$salt])
         ->execute();
         if($stmt) return true;
@@ -38,7 +38,7 @@
       {
         $rslt = null;
         if(isset($userCode)){
-          $rslt = $this->connect->createCommand('SELECT * from icopub.utilisateur where code=:code')
+          $rslt = $this->connect->createCommand('SELECT * from ste.utilisateur where code=:code')
                       ->bindValue(':code', $userCode)
                       ->queryOne();
         }

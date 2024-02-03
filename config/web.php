@@ -134,6 +134,7 @@ $config = [
         
                 //visiteurController
                 md5('visiteur_unicitelibelle') => 'visiteur/unicitelibelle',
+                md5('visiteur_adduser').'/<code:\w+>'=>'visiteur/adduser',
             
                 md5('utilisateur_adduser') => 'utilisateur/adduser',
                 md5('utilisateur_ajax')=>'utilisateur/ajax',

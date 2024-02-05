@@ -122,6 +122,7 @@
 
                             </thead>
                             <tbody class="text-gray-600 fw-semibold" id="databody">
+                            <?php require_once('contenu/article_body.php') ?>
 
                             </tbody>
                         </table>

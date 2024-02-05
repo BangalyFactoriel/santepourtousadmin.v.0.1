@@ -54,23 +54,28 @@ class ArticleController extends Controller
     public function actionArticle()
     {
 
-
-
-
-        if (Yii::$app->request->isPost) {
-            die(var_dump($_POST));
+        $userCode = Yii::$app->mainClass->getUser();
+       if (Yii::$app->request->isPost) {
             switch ($_POST['action_key']) {
-                case md5('addcategorie'):
-
-                    $userCode = Yii::$app->mainClass->getUser();
+                case md5('addaricle'):
                     $code = Yii::$app->nonSqlClass->generateUniq();
-                    $titre = 'categorie';
-                    $contenue = '';
-                    $datepublication = date('Y-m-d');
-                    $codeauter = '';
-                    $codecategorie = '';
-                    $codetype = '';
-                    Yii::$app->articleClass->addArticle($code, $titre, $contenue, $userCode, $datepublication, $codeauter, $codecategorie, $codetype);
+                    $photo ='';
+                    if ($_POST['photo'] != null) {
+                        $uploadFile = $_POST['photo'];
+                        $link_to_upload = Yii::$app->params["linkToUploadIndividusProfil"];
+                        $file_uni_name = Yii::$app->fileuploadClass->upload_image64($link_to_upload, $uploadFile);
+                        if ($file_uni_name != null) {
+                            $photo = $file_uni_name;
+                        }
+                    }
+
+                    $titre = $_POST['article_title'];
+                    $contenue = $_POST['article_content'];
+                    $datepublication = $_POST['article_pub_date'];
+                    $codeauter = $_POST['article_author'];
+                    $codecategorie = $_POST['article_category'];
+                    // $codetype = '';
+                    Yii::$app->articleClass->addArticle($code, $titre, $contenue, $userCode, $datepublication, $codeauter, $codecategorie, $codetype='');
                     $notification = yii::$app->nonSqlClass->afficherNofitication(yii::$app->params['succes'], yii::t('app', 'enrgSuccess'));
                     Yii::$app->session->setFlash('flashmsg', $notification);
                     return $this->redirect(Yii::$app->request->referrer);
@@ -78,7 +83,8 @@ class ArticleController extends Controller
                     break;
             }
         }
-        return $this->render('article/vueprincipale.php');
+        $aricle = Yii::$app->mainClass->getAlltableData('ste.article');
+        return $this->render('article/vueprincipale.php',['aricle'=>$aricle]);
 
 
     }
@@ -105,7 +111,7 @@ class ArticleController extends Controller
             switch ($_POST['action_key']) {
                 case md5('addcategorie'):
                     $code = Yii::$app->nonSqlClass->generateUniq();
-                    $photo = $_POST['avatar_remove'];
+                    $photo ='';
                     if ($_POST['photo'] != null) {
                         $uploadFile = $_POST['photo'];
                         $link_to_upload = Yii::$app->params["linkToUploadIndividusProfil"];
@@ -114,6 +120,7 @@ class ArticleController extends Controller
                             $photo = $file_uni_name;
                         }
                     }
+
                     $userCode = Yii::$app->mainClass->getUser();
                     $code = Yii::$app->nonSqlClass->generateUniq();
                     $libelle = $_POST['productCatNames'];
@@ -240,6 +247,7 @@ class ArticleController extends Controller
                         return $this->redirect(Yii::$app->request->referrer);
                         break;
                     case md5('updatepublicite'):
+
                         $code = $_POST['action_on_this'];
                         $titre = '';
                         $contenue = '';

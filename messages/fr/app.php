@@ -80,6 +80,11 @@ return [
     'btnEditArticle'=>'Modifier',
     'btn_ajout_article'=>'Ajouter un article',
 
+    //utilisateur
+    'utilisateur'=>'Utilisateur',
+    'utilisateur_adduser'=>'Utilisateur',
+    'utilisateur_addgroupeuser'=>'Groupe',
+
 
 
 ];

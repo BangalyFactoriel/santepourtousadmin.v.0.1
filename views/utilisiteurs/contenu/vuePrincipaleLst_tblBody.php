@@ -3,7 +3,7 @@
 if (is_array($listeuser) && sizeof($listeuser) > 0) {
     foreach ($listeuser as $key => $data) {
 
-		$typeuser = yii::$app->mainClass->getuniquedata('icopub.groupe_utilisateurs', $data['codegroupe']);
+		$typeuser = yii::$app->mainClass->getuniquedata('ste.groupe_utilisateurs', $data['codegroupe']);
 		$libtype = (($typeuser) ? $typeuser['libelle'] : '');
 	//  die(var_dump($data['code']));
        

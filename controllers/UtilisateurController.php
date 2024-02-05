@@ -39,7 +39,7 @@ class UtilisateurController extends Controller
                         $_SERVER['REQUEST_URI'] = $lien;
                         $url .= $_SERVER['HTTP_HOST'];
                         $url .= $_SERVER['REQUEST_URI'];
-                        die(var_dump($url));
+                        // die(var_dump($url));
                         Yii::$app->nonSqlClass->envoimail('/utilisiteurs/mailFinaliser.php', $url, $_POST['email'], $_POST['nomuser'] . '' . $_POST['prenomuser'], 'OBJECTIF SANTE', 'Votre lien pour valider votre compte');
                         $notification = yii::$app->nonSqlClass->afficherNofitication(yii::$app->params['succes'], yii::t('app', 'enrgSuccessvmail'));
                         Yii::$app->session->setFlash('flashmsg', $notification);
@@ -66,15 +66,10 @@ class UtilisateurController extends Controller
                         $notification = yii::$app->nonSqlClass->afficherNofitication(yii::$app->params['information'], yii::t('app', 'modifSuccess'));
                         Yii::$app->session->setFlash('flashmsg', $notification);
                         return $this->redirect(Yii::$app->request->referrer);
-
-
-
                     }
 
                     break;
             }
-
-
         }
 
 

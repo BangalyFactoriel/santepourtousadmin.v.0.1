@@ -213,4 +213,31 @@ class articleClass extends Component
 
   }
 
+
+  public function searchforfiltrearticle($donneeRecherche = '', $limit = '1',$datedebut,$datefin)
+  {
+    $query = null;
+
+    $limit = Yii::$app->articleClass->getRealLimit($limit);
+    if (isset($limit) && $limit > 0) {
+      $limit = 'LIMIT ' . $limit;
+    }
+
+    try {
+      $req = $this->connect->createCommand('SELECT * FROM ste.article where 
+         	(titre like :donnerechercher or codecategorie like :donnerechercher or codeauter like :donnerechercher) 
+          and statut=:statut
+          and  dateajout BETWEEN :datedebut and  :datefin 
+
+                ORDER BY id desc ' . $limit)
+
+        ->bindValues([':donnerechercher' => '%' . $donneeRecherche . '%',':statut'=>'1',':datedebut'=>$datedebut,':datefin'=>$datefin])
+        ->queryAll();
+      return $req;
+    } catch (\Throwable $th) {
+      die($th->getMessage());
+    }
+
+  }
+
 }

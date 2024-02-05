@@ -90,11 +90,10 @@ public function getdata($table){
   public function databycode($table, $libelle, $columns)
   {
       $query = null;
-      $codeEntrprise = yii::$app->mainClass->getEntite();
       try {
-          $query = $this->connect->createCommand("SELECT * FROM $table where $columns = :libelle  AND codeentite = :codeentite
-                      order by id  desc")
-              ->bindValues([':libelle' => $libelle, ':codeentite' => $codeEntrprise])
+          $query = $this->connect->createCommand("SELECT * FROM $table where $columns = :libelle  
+                   ")
+              ->bindValue(':libelle' , $libelle)
               ->queryAll();
           // die(var_dump($query));
 

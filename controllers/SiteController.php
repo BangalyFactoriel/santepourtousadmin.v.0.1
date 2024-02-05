@@ -111,9 +111,27 @@ class SiteController extends Controller
   
     }
 
+
+
+    
+    public function actionAjax()
+    {
+        // die("dd");
+        //preparer le mode de retour en ajx
+        Yii::$app->response->format = Response::FORMAT_JSON;
+        if (Yii::$app->request->isPost) {
+            $request = $_POST;
+            switch ($request['action_key']) {
+            }
+
+        }
+
+    }
+
+
     public function actionProfil(){
         $userCode = Yii::$app->mainClass->getUser();
-        $infousers = yii::$app->mainClass->getuniquedata('icopub.utilisateur', $userCode);
+        $infousers = yii::$app->mainClass->getuniquedata('ste.utilisateur', $userCode);
         if (Yii::$app->request->isPost) {
 
             $photo =$_POST['avatar_remove'];
@@ -152,21 +170,5 @@ class SiteController extends Controller
           }
 
         return $this->render('profil', ['infousers' => $infousers]);
-    }
-
-
-    
-    public function actionAjax()
-    {
-        // die("dd");
-        //preparer le mode de retour en ajx
-        Yii::$app->response->format = Response::FORMAT_JSON;
-        if (Yii::$app->request->isPost) {
-            $request = $_POST;
-            switch ($request['action_key']) {
-            }
-
-        }
-
     }
 }

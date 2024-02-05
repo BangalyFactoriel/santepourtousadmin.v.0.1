@@ -104,8 +104,7 @@ class UtilisateurController extends Controller
             //   die(var_dump($verifiercode));
             if (!empty($_POST['username']) && !empty($_POST['new_password'])) {
                 $addUser = Yii::$app->utilisateurClass->addUsers($code, $nom, $prenom, $email, $_POST['new_password'], $groupe, $codeuser, $_POST['username']);
-                //  die(var_dump($addUser));
-
+           
                 $notification = yii::$app->nonSqlClass->afficherNofitication(yii::$app->params['succes'], yii::t('app', 'enrgSuccess'));
                 Yii::$app->session->setFlash('flashmsg', $notification);
                 return $this->render('/site/login.php');
@@ -126,7 +125,7 @@ class UtilisateurController extends Controller
             switch ($_POST['action_key']) {
                 case md5('modifiertypeuser'):
                     // return $_POST;
-                    $nosaction = Yii::$app->mainClass->getTableData($_POST['code'], 'icopub.groupe_utilisateurs');
+                    $nosaction = Yii::$app->mainClass->getTableData($_POST['code'], 'ste.groupe_utilisateurs');
                     // return $nosaction;
 
                     return $this->renderPartial('/ajax/typeuser/modaledit.php', ['nosaction' => $nosaction, 'code' => $_POST['code']]);

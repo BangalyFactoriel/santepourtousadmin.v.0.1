@@ -43,7 +43,7 @@ public function getdata($table){
   {
     $query = null;
     try {
-      $query = $this->connect->createCommand("SELECT * FROM $table  WHERE statut=:statut")
+      $query = $this->connect->createCommand("SELECT * FROM $table  WHERE statut=:statut ")
         ->bindValue(':statut', '1')
         ->queryAll();
       return $query;

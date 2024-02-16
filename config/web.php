@@ -117,6 +117,7 @@ $config = [
                 md5('site_index') => 'site/index',
                 md5('login')=>'site/login',
                 md5('site_profil')=>'site/profil',
+                md5('site_deconnecter')=>'site/deconnecter',
                 '' => 'site/index',
                 //productController
               
@@ -124,6 +125,7 @@ $config = [
                 md5('article_publicite') => 'article/publicite',
                 md5('article_reference') => 'article/reference',
                 md5('article_article') => 'article/article',
+                md5('article_updatearticle').'/<code:\w+>'=> 'article/updatearticle',
                 md5('article_addarticle') => 'article/addarticle',
                 md5('article_ajax') => 'article/ajax',
              
@@ -132,6 +134,7 @@ $config = [
 
                 //parametre
                 md5('config_params') =>'config/params',
+                md5('config_ajax') =>'config/ajax',
         
                 //visiteurController
                 md5('visiteur_unicitelibelle') => 'visiteur/unicitelibelle',

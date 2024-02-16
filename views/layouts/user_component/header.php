@@ -1,7 +1,7 @@
 <?php
-//   $userCode = Yii::$app->mainClass->getUser();
-//   $infousers = yii::$app->mainClass->getuniquedata('icopub.utilisateur', $userCode);
-//   $detail = Yii::$app->mainClass->getTableDataparams('icopub.entite');
+  $userCode = Yii::$app->mainClass->getUser();
+  $infousers = yii::$app->mainClass->getuniquedata('ste.utilisateur', $userCode);
+  $info = Yii::$app->mainClass->getTableDataparams('ste.entite');
 
 ?>
 
@@ -69,10 +69,13 @@
 			<!--begin::Logo-->
 			<div class="d-flex align-items-center flex-grow-1 flex-lg-grow-1 me-lg-13">
 				<a href="">
-					<?php
-					echo '<img alt="Logo" src="' . yii::$app->request->baseUrl .Yii::$app->params['linkToUploadIndividusProfil'] .'" class="h-60px h-lg-60px theme-light-show" />';
+				<?php
+					if ($info['logo'] == '') {
+						echo '<img alt="Logo" src="' . yii::$app->request->baseUrl . '/web/assets/media/logo/pierredfacto.png" class="h-60px h-lg-60px theme-light-show" />';
 
-
+					} else {
+						echo '<img alt="Logo" src="' . yii::$app->request->baseUrl . '/web/assets/media/uploads/photo/' . $info['logo'] . '" class="h-60px h-lg-60px theme-light-show" />';
+					}
 					?>
 				</a>
 			</div>
@@ -106,8 +109,8 @@
 						data-kt-menu-placement="bottom-end">
 						<!--begin::User-->
 						<div class="cursor-pointer symbol me-3 symbol-35px symbol-lg-45px ">
-							<img class=""
-								src="<?= yii::$app->request->baseUrl .Yii::$app->params['linkToUploadIndividusProfil'] ?>"
+						<img class=""
+								src="<?= yii::$app->request->baseUrl . '/web/assets/media/uploads/photo/' . $infousers['photo'] ?>"
 								alt="user" />
 						</div>
 						<!--end::User-->
@@ -122,17 +125,17 @@
 								<!--begin::Avatar-->
 								<div class="symbol symbol-50px me-5">
 									<img alt="Logo"
-										src="<?=yii::$app->request->baseUrl .Yii::$app->params['linkToUploadIndividusProfil'] ?>" />
-								</div>
+									src="<?= yii::$app->request->baseUrl . '/web/assets/media/uploads/photo/' . $infousers['photo'] ?>"
+								alt="user" />								</div>
 								<!--end::Avatar-->
 								<!--begin::Username-->
 								<div class="d-flex flex-column">
 									<div class="fw-bold d-flex align-items-center fs-5">
-										Bangaly Camara
+										<?= $infousers['nom'] . ' ' . $infousers['prenom'] ?>
 										<span class="badge badge-light-success fw-bold fs-8 px-2 py-1 ms-2">En
 											ligne</span>
 									</div>
-								
+									
 								</div>
 								<!--end::Username-->
 							</div>

@@ -1,4 +1,3 @@
-
 <!--begin::Toolbar-->
 <div id="kt_app_toolbar" class="app-toolbar pt-4 pt-lg-7 mb-n2 mb-lg-n3">
     <!--begin::Toolbar container-->
@@ -32,7 +31,7 @@
 
             </div>
             <!--end::Toolbar container-->
-            
+
         </div>
         <!--end::Toolbar container-->
     </div>
@@ -58,7 +57,7 @@
                             <!--begin: Pic-->
                             <div class="me-7 mb-4">
                                 <div class="symbol symbol-100px symbol-lg-160px symbol-fixed position-relative">
-                                    <img src="<?= yii::$app->request->baseUrl .Yii::$app->params['linkToUploadIndividusProfil'] . $infousers['photo'] ?>"
+                                    <img src="<?= yii::$app->request->baseUrl . Yii::$app->params['linkToUploadIndividusProfil'] . $infousers['photo'] ?>"
                                         alt="image" />
                                 </div>
                             </div>
@@ -106,6 +105,11 @@
                             <li class="nav-item mt-2">
                                 <a class="nav-link text-active-primary ms-0 me-10 py-5 slide active details"
                                     href="javascript:;" onclick="slide('profil');"> DETAILS SUR LE PROFIL</a>
+                            </li>
+                            <!--begin::Nav item-->
+                            <li class="nav-item mt-2">
+                                <a class="nav-link text-active-primary ms-0 me-10 py-5 slide  details"
+                                    href="javascript:;" onclick="slide('compte');">MON COMPTE</a>
                             </li>
                             <!--end::Nav item-->
                             <!--begin::Nav item-->
@@ -156,14 +160,15 @@
                                             data-kt-image-input="true">
                                             <!--begin::Preview existing avatar-->
                                             <div id="image-cropper-result" class="image-input-wrapper w-125px  h-125px">
-                                                <img src="<?= yii::$app->request->baseUrl .Yii::$app->params['linkToUploadIndividusProfil'] . $infousers['photo'] ?>"
+                                                <img src="<?= yii::$app->request->baseUrl . Yii::$app->params['linkToUploadIndividusProfil'] . $infousers['photo'] ?>"
                                                     style="width:125px; height:125px;">
                                             </div>
                                             <!--end::Preview existing avatar-->
                                             <!--begin::Label-->
                                             <label
                                                 class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow"
-                                                data-kt-image-input-action="change" data-bs-toggle="tooltip" title="
+                                                data-kt-image-input-action="change" data-bs-toggle="tooltip"
+                                                title="
                                                                                         <?= yii::t("app", 'changephoto') ?>">
                                                 <a href="javascript:;" Class="btn " data-bs-toggle="modal"
                                                     data-bs-target="#vuePrincipaleAddInModal">
@@ -182,7 +187,8 @@
                                             <!--begin::Cancel-->
                                             <span
                                                 class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow"
-                                                data-kt-image-input-action="cancel" data-bs-toggle="tooltip" title="
+                                                data-kt-image-input-action="cancel" data-bs-toggle="tooltip"
+                                                title="
                                                                                             <?= yii::t("app", 'supPhoto') ?>">
                                                 <i class="bi bi-x fs-2"></i>
                                             </span>
@@ -190,7 +196,8 @@
                                             <!--begin::Remove-->
                                             <span
                                                 class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow"
-                                                data-kt-image-input-action="remove" data-bs-toggle="tooltip" title="
+                                                data-kt-image-input-action="remove" data-bs-toggle="tooltip"
+                                                title="
                                                                                             <?= yii::t("app", 'supPhoto') ?>">
                                                 <i class="bi bi-x fs-2"></i>
                                             </span>
@@ -239,7 +246,7 @@
                                 <!--begin::Input group-->
 
                                 <!--begin::Input group-->
-                                
+
                                 <!--end::Input group-->
                                 <!--begin::Input group-->
                                 <div class="row mb-6">
@@ -255,46 +262,7 @@
                                     <!--end::Col-->
                                 </div>
                                 <!--end::Input group-->
-                                <div class="row mb-5">
-
-                                 <!--begin::Label-->
-                                 <label for="currentpassword" class="form-label fs-6 fw-bold mb-3 col-lg-4">
-                                        <?= yii::t("app", 'mdpEncours') ?>
-                                    </label>                                    <!--end::Label-->
-                                    <!--begin::Col-->
-                                    <div class="col-lg-8 fv-row">
-                                    <input type="password" class="form-control  form-control-lg form-control-solid"
-                                        name="currentpassword" id="currentpassword">
-                                    </div>
-                                    <!--end::Col-->
-
-                                </div>
-                                <div class="row mb-5">
-                                <label for="currentpassword" class="form-label fs-6 fw-bold mb-3 col-lg-4">
-                                        <?= yii::t("app", 'newpassword') ?>
-                                    </label>
-                                    <div class="col-lg-8 fv-row">
-                                    <input type="password" class="form-control  form-control-lg form-control-solid"
-                                        name="newpassword" id="currentpassword">
-                                    </div>
-                             
-                                </div>
-                                <div class="row mb-5">
-                                    <label for="confirmpassword" class="form-label fs-6 fw-bold mb-3 col-lg-4">
-                                        <?= yii::t("app", 'confirmpswd') ?>
-                                    </label>
-                                    <div class="col-lg-8 fv-row">
-                                    <input type="password" class="form-control  form-control-lg form-control-solid"
-                                        name="confirmpassword" id="confirmpassword">
-                                   </div>
-                            
-                                </div>
-                                
-
-
-
-
-                            </div>
+                           </div>
                             <!--end::Card body-->
                             <!--begin::Actions-->
                             <div class="card-footer d-flex justify-content-end py-6 px-9">
@@ -479,59 +447,12 @@
             '<?= Yii::$app->request->baseUrl . "/" . md5("config_ajax"); ?>',
             { action_key: action, _csrf: '<?= Yii::$app->request->getCsrfToken() ?>' },
             function (response) {
-                console.log(response);
                 $('#contenue').html(response);
 
-                // $('#kt_profile_details_view').html(response);
             }
         );
     }
 
 
-    function modifierpass() {
-        mdpactuelle = $('#currentpassword').val();
-        nvpassaword = $('#newpassword').val();
-        confirmepassword = $('#confirmpassword').val();
-
-        var button = document.querySelector("#passwordSubmit");
-        //--- @ --- Initialiser variables ---- @ ---//
-        button.disabled = true;
-        message('bangaly', 'info');
-
-        var index = 1;
-        var requiredField = ['currentpassword', 'newpassword', 'confirmpassword'];
-
-        var search = window.location.search;
-
-        var formValidation = false;
-        button.setAttribute("data-kt-indicator", "on");
-
-        //--- @ --- Validation champs du formulaire ---- @ ---//
-        formValidation = formValidator(index, requiredField);
-        if (formValidation !== true) {
-            button.removeAttribute("data-kt-indicator");
-            button.disabled = false;
-            return false;
-        }
-
-
-        if (confirmepassword != nvpassaword) {
-
-        }
-
-
-
-        alert(confirmepassword);
-        // $.post(
-        // 	'<?= Yii::$app->request->baseUrl . "/" . md5("config_ajax"); ?>',
-        // 	{ action_key: action, _csrf: '<?= Yii::$app->request->getCsrfToken() ?>' },
-        // 	function (response) {
-        // 		console.log(response);
-        // 		$('#contenue').html(response);
-
-        // 		// $('#kt_profile_details_view').html(response);
-        // 	}
-        // );
-    }
-
+    
 </script>

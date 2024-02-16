@@ -25,7 +25,11 @@ return [
     'modifSuccess'=>'Modifier avec succès',
     'active'=>'Active',
     'suprime'=>'Supprimé',
-
+    'selectImage'=>'Selectionner une image',
+    'validecrop'=>'Valider le crop',
+    'changephoto'=>'Changer la photo',
+    'formajoutarcticle'=>'Formulaire d\'ajout d\'un article',
+    'typecontent'=>'Type De media',
     // Publicite
     'photo' => 'Photo',
     'title' => 'Titre',
@@ -84,6 +88,16 @@ return [
     'utilisateur'=>'Utilisateur',
     'utilisateur_adduser'=>'Utilisateur',
     'utilisateur_addgroupeuser'=>'Groupe',
+    'typecnetents'=>'Type de contenue',
+    'interview'=>'Interview',
+    'granddossier'=>'Grand Dossier',
+    'conseil'=>'Conseil',
+    'btnModifier'=>'Modifier',
+
+
+    'mdpEncours'=>'Mots de passe en cours',
+    'newpassword'=>'Nouveaux Mots de passe',
+    'confirmpswd'=>'Confirmez le mot de passe',
 
 
 

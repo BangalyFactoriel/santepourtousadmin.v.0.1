@@ -15,12 +15,11 @@ if (isset($aricle) && sizeof($aricle) > 0) {
                 
                 
                 <td>' . $data["titre"] . '</td>
-                <td>' . $data["contenue"] . '</td>
                 <td>' . $data["datepublication"] . '</td>
                 <td>' . $infocat. '</td>
                 <td>' . $infoauteur. '</td>
                 <td>
-                <a href="javascript:;"Class="btn btn-circle btn-primary " onClick="$(\'#action_on_this_update\').val(\'' . $data["code"] . '\'); $(\'#updateAuthor\').modal(\'show\');"><i class="fa fa-edit"></i>' . Yii::t("app", "edit") . '</a>
+                <a href="'.yii::$app->request->baseUrl.'/'.md5('article_updatearticle').'/'.$data['code'].'" Class="btn btn-circle btn-primary " "><i class="fa fa-edit"></i>' . Yii::t("app", "edit") . '</a>
                 </td>
             </tr>
             ';

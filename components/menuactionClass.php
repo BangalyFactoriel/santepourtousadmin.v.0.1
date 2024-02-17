@@ -270,7 +270,7 @@ class menuactionClass extends Component
             <span class="path2"></span>
             </i>';
       break;
-      case 'client':
+      case 'auteur':
         return '<i class="ki-duotone ki-user" style="margin-right :10px;">
         <span class="path1"></span>
         <span class="path2"></span>

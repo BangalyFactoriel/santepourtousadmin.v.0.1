@@ -76,6 +76,46 @@
         }
       }
 
+         /** Methode : telecharger la video de l artice **/
+         public function upload_video( $link_to_upload,$uploadFile)
+         {
+           $file= $uploadFile;
+           $rand_numb = Yii::$app->nonSqlClass->generateUniq(); 
+           if(isset($file) && sizeof($file)>0)
+           {
+            
+             $file_name = $file['name'];
+             $file_size = $file['size'];
+             $file_tmp = $file['tmp_name'];
+             $file_type= $file['type'];
+             $extCounter = explode('.', $file_name);
+         
+             $file_ext=end($extCounter);
+            
+             $file_uni_name = $rand_numb.$extCounter[0].'.'.$file_ext;
+             $expensions= array("mp4","avi");
+   
+             if(in_array($file_ext,$expensions) === false){
+               $rslt = 'error';
+             }
+             if($file_size > Yii::$app->params['maxFilevideoSize']){
+               $rslt = 'error';
+             }
+         
+             // if(empty($errors)==true)
+             // {
+             //Yii::getAlias(Yii::$app->basePath.$link_to_upload)
+               $targetfolder = \Yii::getAlias(yii::$app->basePath.$link_to_upload);    
+              
+               if(move_uploaded_file($file_tmp, $targetfolder.$file_uni_name))
+               {
+                 return $file_uni_name;
+               }
+             // }
+             return;
+           }
+         }
+
         /** Methode : telecharger l image de l artice **/
         public function upload_image( $link_to_upload,$uploadFile)
         {

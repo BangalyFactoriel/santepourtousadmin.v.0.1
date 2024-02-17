@@ -2,8 +2,7 @@
 	<th class="ps-2 w-50px  rounded-start"><?= yii::t("app", 'n') ?></th>
 	<th class="min-w-125px">
 		<?= yii::t("app", 'title') ?>
-	</th>
-	
+	</th>	
 	<th class="min-w-125px">
 		<?= yii::t("app", 'article_pub_date') ?>
 	</th>

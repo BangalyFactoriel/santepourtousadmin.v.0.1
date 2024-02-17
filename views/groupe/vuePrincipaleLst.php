@@ -95,7 +95,7 @@
 									Class="btn btn-secondary btn-active-color-white fs-7" data-bs-toggle="modal"
 									data-bs-target="#staticBackdrop">
 									<i class="fa fa-plus text-white" aria-hidden="true"></i>
-									<?= yii::t("app", 'btnnewtype') ?>
+									<?= yii::t("app", 'btn_add_user_group') ?>
 								</a>
 							</div>
                                 <!--end::Add user-->

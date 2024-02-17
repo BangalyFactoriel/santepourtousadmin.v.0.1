@@ -94,9 +94,10 @@ class SiteController extends Controller
     }
 
 
-    public function actionDeconnecter(){
+    public function actionDeconnecter()
+    {
         Yii::$app->getSession()->destroy();
-      }
+    }
 
     /**
      * Displays about page.
@@ -105,15 +106,15 @@ class SiteController extends Controller
      */
     public function actionError()
     {
-      $this->layout = 'login_layout.php';
-      return $this->render('error');
-      // die('ok');
-  
+        $this->layout = 'login_layout.php';
+        return $this->render('error');
+        // die('ok');
+
     }
 
 
 
-    
+
     public function actionAjax()
     {
         // die("dd");
@@ -129,45 +130,43 @@ class SiteController extends Controller
     }
 
 
-    public function actionProfil(){
+    public function actionProfil()
+    {
         $userCode = Yii::$app->mainClass->getUser();
         $infousers = yii::$app->mainClass->getuniquedata('ste.utilisateur', $userCode);
         if (Yii::$app->request->isPost) {
+            switch ($_POST['action_key']) {
+                case md5(strtolower('modifier')):
+                    
+                    $photo = $_POST['avatar_remove'];
+                    if ($_POST['photo'] != null) {
+                        $uploadFile = $_POST['photo'];
+                        $link_to_upload = Yii::$app->params["linkToUploadIndividusProfil"];
+                        // yii::$app->request->baseUrl. '/web/mainAssets/media/auth/bg/auth-bg.png'
+                        $file_uni_name = Yii::$app->fileuploadClass->upload_image64($link_to_upload, $uploadFile);
+                        if ($file_uni_name != null) {
+                            $photo = $file_uni_name;
+                        }
+                    }
 
-            $photo =$_POST['avatar_remove'];
-            if ($_POST['photo'] != null) {
-              $uploadFile = $_POST['photo'];
-              $link_to_upload = Yii::$app->params["linkToUploadIndividusProfil"];
-              // yii::$app->request->baseUrl. '/web/mainAssets/media/auth/bg/auth-bg.png'
-              $file_uni_name = Yii::$app->fileuploadClass->upload_image64($link_to_upload, $uploadFile);
-              if ($file_uni_name != null) {
-                $photo = $file_uni_name;
-              }
-            }
-      
-            
-            if(empty($_POST['newpassword']) ){
-                $modepasse =$infousers['motpasse'] ;
-            }else{
-                	// PREPARE MOT PASSE A ANALYSER
-				$motpass_constitue = $infousers['identifiant'].Yii::$app->params['key_connector']. $_POST['currentpassword']; 
 
-                // RASSURER QUE MOT PASS EST CORRECT
-            $veraciteMot_passe = Yii::$app->cryptoClass->validate_password($motpass_constitue, $infousers['motpasse']); 
-                if(!$veraciteMot_passe || ($_POST['newpassword'] != $_POST['confirmpassword'])){
-                    $notification = yii::$app->nonSqlClass->afficherNofitication(yii::$app->params['attention'], yii::t('app', 'motsdepassedifferent'));
-                Yii::$app->session->setFlash('flashmsg', $notification);
-                return $this->redirect(Yii::$app->request->referrer); 
-                }
-                $modepasse = Yii::$app->accessClass->create_pass($infousers['identifiant'], $_POST['newpassword']);
+                    yii::$app->configClass->updateinfo($_POST['nom'], $_POST['prenom'], $_POST['email'], $photo, $userCode);
+                    $notification = yii::$app->nonSqlClass->afficherNofitication(yii::$app->params['information'], yii::t('app', 'enrgSuccess'));
+                    Yii::$app->session->setFlash('flashmsg', $notification);
+                    return $this->redirect(Yii::$app->request->referrer);
+                    break;
+
+                case md5(strtolower('modifiercompte')):
+                    $infousers = yii::$app->mainClass->getuniquedata('ste.utilisateur', $userCode);
+                    $UpdateUser = Yii::$app->configClass->updateUsers($userCode, $infousers['identifiant'] , $_POST['newpassword']);
+
+                    break;
+
+                default:
+                    # code...
+                    break;
             }
-            $request=$_POST;
-            // $request['']
-            yii::$app->clientClass->updateClient($_POST['nom'],$_POST['prenom'],$_POST['email'],$modepasse,$photo,$userCode);
-            $notification = yii::$app->nonSqlClass->afficherNofitication(yii::$app->params['information'], yii::t('app', 'enrgSuccess'));
-            Yii::$app->session->setFlash('flashmsg', $notification);
-            return $this->redirect(Yii::$app->request->referrer);
-          }
+        }
 
         return $this->render('profil', ['infousers' => $infousers]);
     }

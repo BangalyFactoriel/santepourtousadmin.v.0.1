@@ -1,6 +1,6 @@
 <!--begin::Form-->
 
-<div class="modal fade" id="kt_modal_add_customer" tabindex="-1" style="display: none;" aria-hidden="true">
+<div class="modal fade" id="adatepublicite" tabindex="-1" style="display: none;" aria-hidden="true">
 	<!--begin::Modal dialog-->
 	<div class="modal-dialog modal-dialog-centered mw-650px" data-select2-id="select2-data-130-0luo">
 		<!--begin::Modal content-->
@@ -97,7 +97,7 @@
 							</label>
 							<!--end::Label-->
 							<!--begin::Input-->
-							<input type="text" name="title" id="titleField"
+							<input type="text" name="titre" id="titre"
 								class="form-control border-dark form-control-solid mb-3 mb-lg-0 " />
 							<!--end::Input-->
 							<div class="fv-plugins-message-container invalid-feedback"></div>
@@ -110,7 +110,7 @@
 								<?= yii::t("app", 'content') ?>
 							</label>
 							<!--end::Label-->
-							<textarea type="text" name="content" id="contentField"
+							<textarea type="text" name="content" id="content"
 								class="form-control border-dark form-control-solid mb-3 mb-lg-0 ">
 							</textarea>
 							<!--end::Input-->
@@ -123,7 +123,7 @@
 								<?= yii::t("app", 'datedebut') ?>
 							</label>
 							<!--end::Label-->
-							<input type="date" name="datedebut" id="datedebutField"
+							<input type="date" name="datedebut" id="content"
 								class="form-control border-dark form-control-solid mb-3 mb-lg-0 ">
 							</input>
 							<!--end::Input-->

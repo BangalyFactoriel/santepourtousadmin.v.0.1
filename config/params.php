@@ -10,6 +10,8 @@ return [
    'information' => '100', //
 
    // MENU STUFF
+   'maxFilevideoSize' => '3000', // 3000 KB IS THE MAIMUM FILE SIZE
+
    'menuSeperator' => '@',
    'subMenuSeperator' => ',',
    'translator_separator' => '__',
@@ -26,6 +28,7 @@ return [
    'key_connector' => 'f@ct0r13l!',
    'word_separator' => '@!#act@123@!#',
    'linkToUploadIndividusProfil' => '/web/assets/media/uploads/photo/',
+   'linkToUploadvideo' => '/web/assets/media/uploads/video/',
    'productPrixVente' => 'productPrixVente',
    'productName' => 'productName',
    'prodcutQte' => 'prodcutQte',

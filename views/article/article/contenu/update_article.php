@@ -9,15 +9,12 @@
 			<form id="kt_productCats" class="form fv-plugins-bootstrap5 fv-plugins-framework" method="post"
 				action="<?= Yii::$app->request->baseUrl . "/" . md5("article_article") ?>">
 				<input type="hidden" name="_csrf" value="<?= Yii::$app->request->getCsrfToken() ?>" />
-				<input type="hidden" name="action_key" id="action_key" value="<?= md5('addaricle') ?>" />
-				<input type="hidden" name="action_on_this" id="action_on_this" value="" />
-				<div class=" me-n7 pe-7" data-kt-scroll-activate="{default: false, lg: true}"
-					data-kt-scroll-max-height="auto" data-kt-scroll-dependencies="#kt_modal_add_customer_header"
-					data-kt-scroll-wrappers="#kt_modal_add_customer_scroll" data-kt-scroll-offset="300px" style=""
-					data-select2-id="select2-data-kt_modal_add_customer_scroll">
+				<input type="hidden" name="action_key" id="action_key" value="<?= md5('updatearicle') ?>" />
+				<input type="hidden" name="action_on_this" id="action_on_this" value="<?=$_GET['code']?>" />
+	
 
 					<!--begin::Input group-->
-					<div class="row">	
+					<div class="row">
 						<!--begin::Input group-->
 						<div class="row mb-7 fv-plugins-icon-container">
 							<div class="col-md-6 mt-md-20">
@@ -28,8 +25,8 @@
 								<!--end::Label-->
 								<select name="typecontent" id="typecontent" onchange="selecttypemedia()"
 									class="form-control form-select border-dark form-control-solid mb-3 mb-lg-0 ">
-									<option value="1">Photo</option>
-									<option value="2">Lien</option>
+									<option value="1" <?=(($aricle['typemedia'] == 1) ? 'selected' : '')?>>Photo</option>
+									<option value="2" <?=(($aricle['typemedia'] == 2) ? 'selected' : '')?>>Lien</option>
 
 								</select>
 							</div>
@@ -40,7 +37,7 @@
 									<!--begin::Preview existing avatar-->
 									<!--begin::Preview existing avatar-->
 									<div id="image-cropper-result" class="image-input-wrapper w-150px  h-150px">
-										<img style="width:150px; height:150px;">
+										<img style="width:150px; height:150px;" src="<?=yii::$app->request->baseUrl . '/web/assets/media/uploads/photo/' . $aricle['media'] ?>">
 									</div>
 									<!--end::Preview existing avatar-->
 									<!--end::Preview existing avatar-->
@@ -54,7 +51,7 @@
 											<i class="bi bi-pencil-fill fs-7"></i>
 										</a>
 										<!--begin::Inputs-->
-										<input type="hidden" name="avatar_remove" id="avatar_remove" />
+										<input type="hidden" name="avatar_remove" id="avatar_remove" value="<?=$aricle['media']?>" />
 										<input type="text" id="photo" value="" name="photo"
 											accept=".png, .jpg, .jpeg" />
 										<br>
@@ -90,80 +87,81 @@
 							<!-- =========================================== -->
 							<!--begin::Block-->
 
-						<div class="col-md-6">
-							<!--begin::Input group-->
-							<div class="fv-row mb-7 fv-plugins-icon-container">
-								<!--begin::Label-->
-								<label class="required fw-semibold fs-6 mb-2">
-									<?= yii::t("app", 'article_title') ?>
-								</label>
-								<!--end::Label-->
-								<!--begin::Input-->
-								<input type="text" name="article_title" id="articleTitleField"
-									class="form-control border-dark form-control-solid mb-3 mb-lg-0 " />
-								<!--end::Input-->
-								<div class="fv-plugins-message-container invalid-feedback"></div>
+							<div class="col-md-6">
+								<!--begin::Input group-->
+								<div class="fv-row mb-7 fv-plugins-icon-container">
+									<!--begin::Label-->
+									<label class="required fw-semibold fs-6 mb-2">
+										<?= yii::t("app", 'article_title') ?>
+									</label>
+									<!--end::Label-->
+									<!--begin::Input-->
+									<input type="text" name="article_title" id="articleTitleField" value="<?=$aricle['titre']?>"
+										class="form-control border-dark form-control-solid mb-3 mb-lg-0 " />
+									<!--end::Input-->
+									<div class="fv-plugins-message-container invalid-feedback"></div>
+								</div>
+								<!--end::Input group-->
 							</div>
-							<!--end::Input group-->
-						</div>
-						<div class="col-md-6">
-							<!--begin::Input group-->
-							<div class="fv-row mb-7 fv-plugins-icon-container">
-								<!--begin::Label-->
-								<label class="required fw-semibold fs-6 mb-2">
-									<?= yii::t("app", 'article_pub_date') ?>
-								</label>
-								<!--end::Label-->
-								<!--begin::Input-->
-								<input type="date" name="article_pub_date" id="articlePubDateField"
-									class="form-control border-dark form-control-solid mb-3 mb-lg-0 " />
-								<!--end::Input-->
-								<div class="fv-plugins-message-container invalid-feedback"></div>
+							<div class="col-md-6">
+								<!--begin::Input group-->
+								<div class="fv-row mb-7 fv-plugins-icon-container">
+									<!--begin::Label-->
+									<label class="required fw-semibold fs-6 mb-2">
+										<?= yii::t("app", 'article_pub_date') ?>
+									</label>
+									<!--end::Label-->
+									<!--begin::Input-->
+									<input type="date" name="article_pub_date" id="articlePubDateField" value="<?=$aricle['datepublication']?>"
+										class="form-control border-dark form-control-solid mb-3 mb-lg-0 "
+									 />
+									<!--end::Input-->
+									<div class="fv-plugins-message-container invalid-feedback"></div>
+								</div>
 							</div>
-						</div>
-						<div class="col-md-6">
-							<div class="fv-row mb-7 fv-plugins-icon-container">
-								<!--begin::Label-->
-								<label class="required fw-semibold fs-6 mb-2">
-									<?= yii::t("app", 'article_category') ?>
-								</label>
-								<!--end::Label-->
-								<!--begin::Input-->
-								<select type="date" name="article_category" id="articleCategoryField" data-kt-select2="true"
-									class="form-control form-select border-dark form-control-solid mb-3 mb-lg-0 ">
-									<option value="" hidden>Selectionner une categorie </option>
-									<?php
-									$cat = Yii::$app->mainClass->getAlltableData('ste.categorie');
-									if (sizeof($cat) > 0) {
-										foreach ($cat as $key => $value) {
+							<div class="col-md-6">
+								<div class="fv-row mb-7 fv-plugins-icon-container">
+									<!--begin::Label-->
+									<label class="required fw-semibold fs-6 mb-2">
+										<?= yii::t("app", 'article_category') ?>
+									</label>
+									<!--end::Label-->
+									<!--begin::Input-->
+									<select type="date" name="article_category" id="articleCategoryField"
+										class="form-control form-select border-dark form-control-solid mb-3 mb-lg-0 " value="<?=$aricle['codecategorie']?>">
+										<option value="" hidden>Selectionner une categorie </option>
+										<?php
+										$cat = Yii::$app->mainClass->getAlltableData('ste.categorie');
+										if (sizeof($cat) > 0) {
+											foreach ($cat as $key => $value) {
 
-											echo '<option value="'.$value['code'].'">'.$value['libelle'].'</option>';
+												echo '<option value="' . $value['code'] . '"  '.(($aricle['codecategorie'] == $value['code'] ) ? 'selected' : '').'>' . $value['libelle'] . '</option>';
+											}
 										}
-									}
-									?>
-									
-								</select>
-								<!--end::Input-->
-								<div class="fv-plugins-message-container invalid-feedback"></div>
-							</div>
-						</div>
-						<div class="col-md-6">
-							<div class="fv-row mb-7 fv-plugins-icon-container">
-								<!--begin::Label-->
-								<label class="required fw-semibold fs-6 mb-2">
-									<?= yii::t("app", 'article_author') ?>
-								</label>
-								<!--end::Label-->
-								<!--begin::Input-->
-								<select type="date" name="article_author" id="article_author" data-kt-select2="true"
-									class="form-control form-select border-dark form-control-solid mb-3 mb-lg-0 ">
-									<option value="" hidden>Selectionner un auteur </option>
-									<?php
-									$aut = Yii::$app->mainClass->getAlltableData('ste.auteur');
-									if (sizeof($aut) > 0) {
-										foreach ($aut as $key => $data) {
+										?>
 
-												echo '<option value="' . $data['code'] . '">' . $data['nom'] . ' ' . $data['prenom'] . ' : ' . $data['tel'] . '</option>';
+									</select>
+									<!--end::Input-->
+									<div class="fv-plugins-message-container invalid-feedback"></div>
+								</div>
+							</div>
+							<div class="col-md-6">
+								<div class="fv-row mb-7 fv-plugins-icon-container">
+									<!--begin::Label-->
+									<label class="required fw-semibold fs-6 mb-2">
+										<?= yii::t("app", 'article_author') ?>
+									</label>
+									<!--end::Label-->
+									<!--begin::Input-->
+									<select type="date" name="article_author" id="article_author" 
+										class="form-control form-select border-dark form-control-solid mb-3 mb-lg-0 ">
+										<option value="" hidden>Selectionner un auteur </option>
+										<?php
+										$aut = Yii::$app->mainClass->getAlltableData('ste.auteur');
+										if (sizeof($aut) > 0) {
+											foreach ($aut as $key => $data) {
+
+												echo '<option value="' . $data['code'] . '"  '.(($aricle['codeauter'] == $data['code'] ) ? 'selected' : '').'>' . $data['nom'] . ' ' . $data['prenom'] . ' : ' . $data['tel'] . '</option>';
 											}
 										}
 										?>
@@ -183,7 +181,7 @@
 										<div class="col-md-2">
 											<div class="mb-3">
 												<div class="form-check">
-													<input class="form-check-input" name="typecnetent" type="radio"
+													<input class="form-check-input" name="typecnetent" type="radio" <?=($aricle['type_contenu'] == '1' ) ? 'checked' : ''?>
 														value="1" id="radio1" />
 													<label class="form-check-label" for="radio1">
 														<?= yii::t("app", 'article') ?>
@@ -195,8 +193,8 @@
 										<div class="col-md-2">
 											<div class="mb-3">
 												<div class="form-check">
-													<input class="form-check-input" name="typecnetent" type="radio"
-														value="1" id="radio1" />
+													<input class="form-check-input" name="typecnetent" type="radio" <?=($aricle['type_contenu'] == '2' ) ? 'checked' : ''?>
+														value="2" id="radio1" />
 													<label class="form-check-label" for="radio1">
 														<?= yii::t("app", 'interview') ?>
 													</label>
@@ -207,7 +205,7 @@
 										<div class="col-md-2">
 											<div class="mb-3">
 												<div class="form-check">
-													<input class="form-check-input" name="typecnetent" value="2"
+													<input class="form-check-input" name="typecnetent" value="3" <?=($aricle['type_contenu'] == '3' ) ? 'checked' : ''?>
 														type="radio" id="radio1" />
 													<label class="form-check-label" for="radio1">
 														<?= yii::t("app", 'granddossier') ?>
@@ -219,7 +217,7 @@
 										<div class="col-md-2">
 											<div class="mb-3">
 												<div class="form-check">
-													<input class="form-check-input" name="typecnetent" value="3"
+													<input class="form-check-input" name="typecnetent" value="4" <?=($aricle['type_contenu'] == '4' ) ? 'checked' : ''?>
 														type="radio" id="radio1" />
 													<label class="form-check-label" for="radio1">
 														<?= yii::t("app", 'conseil') ?>
@@ -240,15 +238,15 @@
 										<?= yii::t("app", 'article_content') ?>
 									</label>
 									<!--end::Label-->
-									<textarea type="text" name="article_content" id="articleContentField"
-										class="form-control border-dark form-control-solid mb-3 mb-lg-0 ">
+									<textarea type="text" name="article_content" id="articleContentField" 
+										class="form-control border-dark form-control-solid mb-3 mb-lg-0 "><?= $aricle['contenue']?>
 									</textarea>
 									<!--end::Input-->
 									<div class="fv-plugins-message-container invalid-feedback"></div>
 								</div>
 							</div>
 
-						</div>
+			
 
 			</form>
 		</div>
@@ -261,9 +259,9 @@
 			</button>
 			<!--end::Button-->
 			<!--begin::Button-->
-			<button id="btnadd" Class="btn btn-circle btn-primary" onclick="add()">
+			<button id="btnadd" Class="btn btn-circle btn-primary" onclick="modifier()">
 				<span class="indicator-label">
-					<?= yii::t("app", 'btnEnrg') ?>
+					<?= yii::t("app", 'btnModifier') ?>
 				</span>
 				<span class="indicator-progress">
 					<?= yii::t("app", 'veuillezp') ?>
@@ -275,6 +273,7 @@
 		<!--end::Modal footer-->
 	</div>
 </div>
+
 
 <div class="modal fade" id="vuePrincipaleAddInModal" tabindex="-1" aria-hidden="true" data-bs-backdrop="static"
 	data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
@@ -322,12 +321,24 @@ $csrf = Yii::$app->request->getCsrfToken();
 		});
 	}
 
-	// function add() {
-	// 	alert('ok');
-	// }
+	function add() {
+		alert('ok');
+	}
 
+	cropper(document.getElementById('image-cropper'), {
+		area: [500, 400],
+		cropBoxResizable: true,
 
-
+	})
+	document.getElementById('image-getter').onclick = function () {
+		document.getElementById('image-cropper-result').children[0].src = document.getElementById('image-cropper').crop
+			.getCroppedImage().src;
+		var image = document.getElementById('image-cropper-result').children[0].src;
+		document.getElementById('photo').value = image;
+		// var image =  document.getElementById('image-cropper').crop.getImage().src;;
+		// console.log(image);
+	}
+	selecttypemedia();
 
 
 

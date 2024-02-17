@@ -35,7 +35,15 @@ if (isset($publlicite) && sizeof($publlicite) > 0) {
                 <td>' . $data['datedebut'] . '</td>
                 <td>' . $data['datefin'] . '</td>
                 <td>
-                <a href="javascript:;" Class="btn btn-circle btn-primary " onClick="updatebackground(\'' . yii::$app->request->baseUrl . '/web/assets/media/uploads/photo/' . $data['photo'] . '\');$(\'#action_key\').val(\'' . md5('catalog_updateCat') . '\');$(\'#avatar_removeupdateupdate\').val(\'' . $data['photo'] . '\');$(\'#productCatNameUpdate\').val(\'' . $data["titre"] . '\'); $(\'#productCatDescUpdate\').val(\'' . ($data["contenue"]) . '\'); $(\'#statutCatUpdate\').val(\'' . $data["statut"] . '\'); $(\'.action_on_this\').val(\'' . $data["code"] . '\'); $(\'#updatepublicite\').modal(\'show\');"><i class="fa fa-indent"></i>' . Yii::t("app", "edit") . '</a>
+                <a href="javascript:;" Class="btn btn-circle btn-primary " onClick="updatebackground(\'' . yii::$app->request->baseUrl . '/web/assets/media/uploads/photo/' . $data['photo'] . '\');
+                    $(\'.action_key\').val(\'' . md5('updatepublicite') . '\');$(\'#avatar_removeupdateupdate\').val(\'' . $data['photo'] . '\');
+                    $(\'#titreupdate\').val(\'' . $data["titre"] . '\'); $(\'#contentupdate\').val(\'' . ($data["contenue"]) . '\'); 
+                    $(\'#statutCatUpdate\').val(\'' . $data["statut"] . '\');
+                    $(\'.action_on_this\').val(\'' . $data["code"] . '\');  $(\'#datedebutupdate\').val(\'' . $data["datedebut"] . '\');  $(\'#datefinupdate\').val(\'' . $data["datefin"] . '\');
+                    $(\'#positionupdate\').val(\'' . $data["positionnement"] . '\');
+                    $(\'#updatemodal\').modal(\'show\');">
+                    <i class="fa fa-indent"></i>' . Yii::t("app", "edit") . '
+                 </a>
                 </td>
             </tr>
             ';

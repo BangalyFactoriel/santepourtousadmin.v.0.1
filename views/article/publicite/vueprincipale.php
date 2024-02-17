@@ -54,7 +54,7 @@ $datefin = $date['finMois'];
                                 <!--begin::Add user-->
                                 <a href="javascript:;" onclick="$('#kt_cat_conge').reset()"
                                     class="btn btn-flex btn-sm btn-body btn-color-gray-600 h-35px bg-body fw-bold"
-                                    data-bs-toggle="modal" data-bs-target="#kt_modal_add_customer">
+                                    data-bs-toggle="modal" data-bs-target="#adatepublicite">
                                     <i class="ki-outline ki-plus fs-2">
                                     </i>
                                     <?= Yii::t("app", 'btnajoutpblicite') ?>
@@ -107,7 +107,7 @@ $datefin = $date['finMois'];
                                 </label>
                             </div>
                             <div class="col-md-2 col-lg-2 mt-2">
-                                <input type="date" name="datedebut" class="form-control  fs-7 ps-12" id=""
+                                <input type="date" name="datedebutfitre" class="form-control  fs-7 ps-12" id="datedebutfitre"
                                     value="<?= $datedebut ?>">
                             </div>
                             <div class="col-md-1 col-lg-1 pt-2  fw-bold fs-3 mt-2 " style="margin-right: -40px;">
@@ -116,7 +116,7 @@ $datefin = $date['finMois'];
                                 </label>
                             </div>
                             <div class="col-md-2 col-lg-2 mt-2 ">
-                                <input type="date" name="datefin" class="form-control  fs-7 ps-12" id=""
+                                <input type="date" name="datefinfitre" class="form-control  fs-7 ps-12" id="datefinfitre"
                                     value="<?= $datefin ?>">
                             </div>
 

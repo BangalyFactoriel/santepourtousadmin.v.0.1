@@ -147,12 +147,30 @@ class articleClass extends Component
    * *******************************************************************************************
    */
 
-   public function addArticle($code, $titre,$contenue ,$codeuses, $datepublication,$codeauter,$codecategorie,$codetype, $photo)
+
+   public function addArticle($code, $titre,$contenue ,$codeuses, $datepublication,$codeauter,$codecategorie,$codetype,$media,$typemedia ,$type_contenu)
    {
      try {
-       $req = $this->connect->createCommand('INSERT INTO ste.article(code, titre, contenue, datepublication, codeauter, codeuser, codecategorie, codetype,media)
-        VALUES (:code, :titre, :contenue, :datepublication, :codeauter, :codeuser, :codecategorie, :codetype, :media) ')
-         ->bindValues([':code' => $code, ':titre' => $titre,':contenue'=>$contenue ,':codeuser' => $codeuses, ':datepublication' => $datepublication,':codeauter'=>$codeauter,':codecategorie'=>$codecategorie,':codetype'=>$codetype, ':media'=>$photo])
+       $req = $this->connect->createCommand('INSERT INTO ste.article(code, titre, contenue, datepublication, codeauter, codeuser, codecategorie, codetype,media,typemedia ,type_contenu)
+        VALUES (:code, :titre, :contenue, :datepublication, :codeauter, :codeuser, :codecategorie, :codetype,:media,:typemedia ,:type_contenu) ')
+         ->bindValues([':code' => $code, ':titre' => $titre,':contenue'=>$contenue ,':codeuser' => $codeuses, ':datepublication' => $datepublication,':codeauter'=>$codeauter,':codecategorie'=>$codecategorie,':codetype'=>$codetype,':media'=>$media,':typemedia'=>$typemedia ,':type_contenu'=>$type_contenu])
+         ->execute();
+     } catch (\Throwable $th) {
+       die($th->getMessage());
+     }
+   }
+
+
+
+   
+   public function updateArticle($code, $titre,$contenue ,$codeuses, $datepublication,$codeauter,$codecategorie,$codetype,$media,$typemedia ,$type_contenu)
+   {
+     try {
+      // die(var_dump($typemedia));
+
+       $req = $this->connect->createCommand('UPDATE ste.article SET  titre=:titre, contenue=:contenue, datepublication=:datepublication, codeauter=:codeauter, codeuser=:codeuser, codecategorie=:codecategorie, codetype=:codetype,media=:media,typemedia=:typemedia ,type_contenu=:type_contenu
+            WHERE code=:code ')
+         ->bindValues([':code' => $code, ':titre' => $titre,':contenue'=>$contenue ,':codeuser' => $codeuses, ':datepublication' => $datepublication,':codeauter'=>$codeauter,':codecategorie'=>$codecategorie,':codetype'=>$codetype,':media'=>$media,':typemedia'=>$typemedia ,':type_contenu'=>$type_contenu])
          ->execute();
      } catch (\Throwable $th) {
        die($th->getMessage());

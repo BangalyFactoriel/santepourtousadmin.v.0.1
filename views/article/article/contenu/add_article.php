@@ -322,6 +322,23 @@ $csrf = Yii::$app->request->getCsrfToken();
 		});
 	}
 
+
+
+
+	cropper(document.getElementById('image-cropper'), {
+		area: [500, 400],
+		cropBoxResizable: true,
+
+	})
+	document.getElementById('image-getter').onclick = function () {
+		document.getElementById('image-cropper-result').children[0].src = document.getElementById('image-cropper').crop
+			.getCroppedImage().src;
+		var image = document.getElementById('image-cropper-result').children[0].src;
+		document.getElementById('photo').value = image;
+		// var image =  document.getElementById('image-cropper').crop.getImage().src;;
+		// console.log(image);
+	}
+
 	// function add() {
 	// 	alert('ok');
 	// }

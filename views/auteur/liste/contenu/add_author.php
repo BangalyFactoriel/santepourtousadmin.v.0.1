@@ -62,7 +62,7 @@
 								<?= yii::t("app", 'author_phone') ?>
 							</label>
 							<!--end::Label-->
-							<input type="text" name="phone" id="phoneField"
+							<input type="number" name="phone" id="phoneField"
 								class="form-control border-dark form-control-solid mb-3 mb-lg-0 ">
 							</input>
 							<!--end::Input-->

@@ -75,7 +75,7 @@ class ArticleController extends Controller
                     $codeauter = $_POST['article_author'];
                     $codecategorie = $_POST['article_category'];
                     // $codetype = '';
-                    Yii::$app->articleClass->addArticle($code, $titre, $contenue, $userCode, $datepublication, $codeauter, $codecategorie, $codetype='');
+                    Yii::$app->articleClass->addArticle($code, $titre, $contenue, $userCode, $datepublication, $codeauter, $codecategorie,'1', $photo);
                     $notification = yii::$app->nonSqlClass->afficherNofitication(yii::$app->params['succes'], yii::t('app', 'enrgSuccess'));
                     Yii::$app->session->setFlash('flashmsg', $notification);
                     return $this->redirect(Yii::$app->request->referrer);

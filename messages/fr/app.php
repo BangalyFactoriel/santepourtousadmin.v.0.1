@@ -11,6 +11,7 @@ return [
     'edit'=>'Modifier',
     'statut'=>'STATUT',
     'libexiste'=>'Le libellé existe déjà',
+    'phone_exists'=>'Ce numéro de téléphone existe déjà',
     'champsvide'=>'Veuillez remplir les champs obligatoires ',
     'article'=>'Article',
     'article_categories'=>'Categorie',

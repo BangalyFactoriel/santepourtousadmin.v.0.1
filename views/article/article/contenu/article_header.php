@@ -3,11 +3,6 @@
 	<th class="min-w-125px">
 		<?= yii::t("app", 'title') ?>
 	</th>
-
-	<th class="min-w-125px">
-		<?= yii::t("app", 'content') ?>
-	</th>
-
 	
 	<th class="min-w-125px">
 		<?= yii::t("app", 'article_pub_date') ?>

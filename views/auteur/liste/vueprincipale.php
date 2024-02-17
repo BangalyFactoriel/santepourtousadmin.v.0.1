@@ -113,7 +113,7 @@
                         <!--begin::Table-->
                         <?= Yii::$app->session->getFlash('flashmsg');
                         Yii::$app->session->removeFlash('flashmsg'); ?>
-
+                            <div class="table-responsive">
                         <table class="table align-middle table-row-dashed fs-6 gy-5"
                             id="kt_datatable_zero_configuration">
 
@@ -125,6 +125,7 @@
                             </tbody>
                         </table>
                         <!--end::Table-->
+                        </div>
                     </div>
                     <!--end::Card body-->
                 </div>

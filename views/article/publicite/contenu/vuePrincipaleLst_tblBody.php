@@ -31,7 +31,6 @@ if (isset($publlicite) && sizeof($publlicite) > 0) {
                 </div>
                 </td>
                 <td>' . $data["titre"] . '</td>
-                <td>' . $data["contenue"] . '</td>
                 <td>' . $posi . '</td>
                 <td>' . $data['datedebut'] . '</td>
                 <td>' . $data['datefin'] . '</td>

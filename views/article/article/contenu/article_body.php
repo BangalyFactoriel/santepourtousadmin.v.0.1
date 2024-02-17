@@ -13,9 +13,7 @@ if (isset($aricle) && sizeof($aricle) > 0) {
             <tr>
                 <td>' . $key2 . '</td>
                 
-                
                 <td>' . $data["titre"] . '</td>
-                <td>' . $data["contenue"] . '</td>
                 <td>' . $data["datepublication"] . '</td>
                 <td>' . $infocat. '</td>
                 <td>' . $infoauteur. '</td>

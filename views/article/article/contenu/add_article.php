@@ -121,7 +121,7 @@
 								</label>
 								<!--end::Label-->
 								<!--begin::Input-->
-								<select type="date" name="article_category" id="articleCategoryField"
+								<select type="date" name="article_category" id="articleCategoryField" data-kt-select2="true"
 									class="form-control form-select border-dark form-control-solid mb-3 mb-lg-0 ">
 									<option value="" hidden>Selectionner une categorie </option>
 									<?php
@@ -147,7 +147,7 @@
 								</label>
 								<!--end::Label-->
 								<!--begin::Input-->
-								<select type="date" name="article_author" id="article_author"
+								<select type="date" name="article_author" id="article_author" data-kt-select2="true"
 									class="form-control form-select border-dark form-control-solid mb-3 mb-lg-0 ">
 									<option value="" hidden>Selectionner un auteur </option>
 									<?php

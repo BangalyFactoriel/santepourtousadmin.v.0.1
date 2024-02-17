@@ -20,7 +20,7 @@
                             <?= Yii::t('app', 'statut') ?> :
                         </label>
                         <div class="col-sm-12">
-                            <select class="form-select" name="statutCatUpdate" id="statutCatUpdate">
+                            <select class="form-select" data-kt-select2="true" name="statutCatUpdate" id="statutCatUpdate">
                                 <option value="1">
                                     <?= Yii::t('app', 'active') ?>
                                 </option>

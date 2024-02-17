@@ -147,12 +147,12 @@ class articleClass extends Component
    * *******************************************************************************************
    */
 
-   public function addArticle($code, $titre,$contenue ,$codeuses, $datepublication,$codeauter,$codecategorie,$codetype)
+   public function addArticle($code, $titre,$contenue ,$codeuses, $datepublication,$codeauter,$codecategorie,$codetype, $photo)
    {
      try {
-       $req = $this->connect->createCommand('INSERT INTO ste.article(code, titre, contenue, datepublication, codeauter, codeuser, codecategorie, codetype)
-        VALUES (:code, :titre, :contenue, :datepublication, :codeauter, :codeuser, :codecategorie, :codetype) ')
-         ->bindValues([':code' => $code, ':titre' => $titre,':contenue'=>$contenue ,':codeuser' => $codeuses, ':datepublication' => $datepublication,':codeauter'=>$codeauter,':codecategorie'=>$codecategorie,':codetype'=>$codetype])
+       $req = $this->connect->createCommand('INSERT INTO ste.article(code, titre, contenue, datepublication, codeauter, codeuser, codecategorie, codetype,media)
+        VALUES (:code, :titre, :contenue, :datepublication, :codeauter, :codeuser, :codecategorie, :codetype, :media) ')
+         ->bindValues([':code' => $code, ':titre' => $titre,':contenue'=>$contenue ,':codeuser' => $codeuses, ':datepublication' => $datepublication,':codeauter'=>$codeauter,':codecategorie'=>$codecategorie,':codetype'=>$codetype, ':media'=>$photo])
          ->execute();
      } catch (\Throwable $th) {
        die($th->getMessage());

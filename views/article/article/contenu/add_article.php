@@ -17,7 +17,7 @@
 					data-select2-id="select2-data-kt_modal_add_customer_scroll">
 
 					<!--begin::Input group-->
-					<div class="row">
+					<div class="row">	
 						<!--begin::Input group-->
 						<div class="row mb-7 fv-plugins-icon-container">
 							<div class="col-md-6 mt-md-20">
@@ -90,79 +90,78 @@
 							<!-- =========================================== -->
 							<!--begin::Block-->
 
-							<div class="col-md-6">
-								<!--begin::Input group-->
-								<div class="fv-row mb-7 fv-plugins-icon-container">
-									<!--begin::Label-->
-									<label class="required fw-semibold fs-6 mb-2">
-										<?= yii::t("app", 'article_title') ?>
-									</label>
-									<!--end::Label-->
-									<!--begin::Input-->
-									<input type="text" name="article_title" id="articleTitleField"
-										class="form-control border-dark form-control-solid mb-3 mb-lg-0 " />
-									<!--end::Input-->
-									<div class="fv-plugins-message-container invalid-feedback"></div>
-								</div>
-								<!--end::Input group-->
+						<div class="col-md-6">
+							<!--begin::Input group-->
+							<div class="fv-row mb-7 fv-plugins-icon-container">
+								<!--begin::Label-->
+								<label class="required fw-semibold fs-6 mb-2">
+									<?= yii::t("app", 'article_title') ?>
+								</label>
+								<!--end::Label-->
+								<!--begin::Input-->
+								<input type="text" name="article_title" id="articleTitleField"
+									class="form-control border-dark form-control-solid mb-3 mb-lg-0 " />
+								<!--end::Input-->
+								<div class="fv-plugins-message-container invalid-feedback"></div>
 							</div>
-							<div class="col-md-6">
-								<!--begin::Input group-->
-								<div class="fv-row mb-7 fv-plugins-icon-container">
-									<!--begin::Label-->
-									<label class="required fw-semibold fs-6 mb-2">
-										<?= yii::t("app", 'article_pub_date') ?>
-									</label>
-									<!--end::Label-->
-									<!--begin::Input-->
-									<input type="date" name="article_pub_date" id="articlePubDateField"
-										class="form-control border-dark form-control-solid mb-3 mb-lg-0 "
-										min="<?= date('Y-m-d') ?>" />
-									<!--end::Input-->
-									<div class="fv-plugins-message-container invalid-feedback"></div>
-								</div>
+							<!--end::Input group-->
+						</div>
+						<div class="col-md-6">
+							<!--begin::Input group-->
+							<div class="fv-row mb-7 fv-plugins-icon-container">
+								<!--begin::Label-->
+								<label class="required fw-semibold fs-6 mb-2">
+									<?= yii::t("app", 'article_pub_date') ?>
+								</label>
+								<!--end::Label-->
+								<!--begin::Input-->
+								<input type="date" name="article_pub_date" id="articlePubDateField"
+									class="form-control border-dark form-control-solid mb-3 mb-lg-0 " />
+								<!--end::Input-->
+								<div class="fv-plugins-message-container invalid-feedback"></div>
 							</div>
-							<div class="col-md-6">
-								<div class="fv-row mb-7 fv-plugins-icon-container">
-									<!--begin::Label-->
-									<label class="required fw-semibold fs-6 mb-2">
-										<?= yii::t("app", 'article_category') ?>
-									</label>
-									<!--end::Label-->
-									<!--begin::Input-->
-									<select type="date" name="article_category" id="articleCategoryField"
-										class="form-control form-select border-dark form-control-solid mb-3 mb-lg-0 ">
-										<option value="" hidden>Selectionner une categorie </option>
-										<?php
-										$cat = Yii::$app->mainClass->getAlltableData('ste.categorie');
-										if (sizeof($cat) > 0) {
-											foreach ($cat as $key => $value) {
+						</div>
+						<div class="col-md-6">
+							<div class="fv-row mb-7 fv-plugins-icon-container">
+								<!--begin::Label-->
+								<label class="required fw-semibold fs-6 mb-2">
+									<?= yii::t("app", 'article_category') ?>
+								</label>
+								<!--end::Label-->
+								<!--begin::Input-->
+								<select type="date" name="article_category" id="articleCategoryField" data-kt-select2="true"
+									class="form-control form-select border-dark form-control-solid mb-3 mb-lg-0 ">
+									<option value="" hidden>Selectionner une categorie </option>
+									<?php
+									$cat = Yii::$app->mainClass->getAlltableData('ste.categorie');
+									if (sizeof($cat) > 0) {
+										foreach ($cat as $key => $value) {
 
-												echo '<option value="' . $value['code'] . '">' . $value['libelle'] . '</option>';
-											}
+											echo '<option value="'.$value['code'].'">'.$value['libelle'].'</option>';
 										}
-										?>
-
-									</select>
-									<!--end::Input-->
-									<div class="fv-plugins-message-container invalid-feedback"></div>
-								</div>
+									}
+									?>
+									
+								</select>
+								<!--end::Input-->
+								<div class="fv-plugins-message-container invalid-feedback"></div>
 							</div>
-							<div class="col-md-6">
-								<div class="fv-row mb-7 fv-plugins-icon-container">
-									<!--begin::Label-->
-									<label class="required fw-semibold fs-6 mb-2">
-										<?= yii::t("app", 'article_author') ?>
-									</label>
-									<!--end::Label-->
-									<!--begin::Input-->
-									<select type="date" name="article_author" id="article_author"
-										class="form-control form-select border-dark form-control-solid mb-3 mb-lg-0 ">
-										<option value="" hidden>Selectionner un auteur </option>
-										<?php
-										$aut = Yii::$app->mainClass->getAlltableData('ste.auteur');
-										if (sizeof($aut) > 0) {
-											foreach ($aut as $key => $data) {
+						</div>
+						<div class="col-md-6">
+							<div class="fv-row mb-7 fv-plugins-icon-container">
+								<!--begin::Label-->
+								<label class="required fw-semibold fs-6 mb-2">
+									<?= yii::t("app", 'article_author') ?>
+								</label>
+								<!--end::Label-->
+								<!--begin::Input-->
+								<select type="date" name="article_author" id="article_author" data-kt-select2="true"
+									class="form-control form-select border-dark form-control-solid mb-3 mb-lg-0 ">
+									<option value="" hidden>Selectionner un auteur </option>
+									<?php
+									$aut = Yii::$app->mainClass->getAlltableData('ste.auteur');
+									if (sizeof($aut) > 0) {
+										foreach ($aut as $key => $data) {
 
 												echo '<option value="' . $data['code'] . '">' . $data['nom'] . ' ' . $data['prenom'] . ' : ' . $data['tel'] . '</option>';
 											}

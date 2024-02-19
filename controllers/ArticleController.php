@@ -54,10 +54,6 @@ class ArticleController extends Controller
      * *******************************************************************************************
      */
 
-
-
-
-
     //ACTION SUR L'ARTICLE
     public function actionArticle()
     {
@@ -284,9 +280,6 @@ class ArticleController extends Controller
 
     }
 
-
-
-
     /*********************************************************************************************
      *                              FONCTION DE LA REFERENCE
      * *******************************************************************************************
@@ -331,7 +324,6 @@ class ArticleController extends Controller
         return $this->render('reference/vueprincipale.php', ['reference' => $reference]);
 
     }
-
 
     /*********************************************************************************************
      *                              FONCTION SUR L'ACTION PUBLICITE

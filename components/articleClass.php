@@ -147,6 +147,7 @@ class articleClass extends Component
    * *******************************************************************************************
    */
 
+
    public function addArticle($code, $titre,$contenue ,$codeuses, $datepublication,$codeauter,$codecategorie,$codetype,$media,$typemedia ,$type_contenu)
    {
      try {

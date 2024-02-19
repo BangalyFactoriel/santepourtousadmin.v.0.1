@@ -7,7 +7,6 @@
 	<th class="min-w-125px">
 		<?= yii::t("app", 'title') ?>
 	</th>
-	
 	<th class="min-w-125px">
 		<?= yii::t("app", 'positionnement') ?>
 	</th>

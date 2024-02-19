@@ -11,6 +11,7 @@ return [
     'edit'=>'Modifier',
     'statut'=>'STATUT',
     'libexiste'=>'Le libellé existe déjà',
+    'phone_exists'=>'Ce numéro de téléphone existe déjà',
     'champsvide'=>'Veuillez remplir les champs obligatoires ',
     'article'=>'Article',
     'article_categories'=>'Categorie',
@@ -93,6 +94,8 @@ return [
     'granddossier'=>'Grand Dossier',
     'conseil'=>'Conseil',
     'btnModifier'=>'Modifier',
+    'btn_add_user'=>'Ajouter un utilisateur',
+    'btn_add_user_group'=>'Ajouter un type d\'utilisateur',
 
 
     'mdpEncours'=>'Mots de passe en cours',

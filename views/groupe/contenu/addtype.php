@@ -19,7 +19,7 @@
 
           <?= Yii::$app->session->getFlash('flashmsg');
           Yii::$app->session->removeFlash('flashmsg'); ?>
-
+Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ut illo neque quisquam quia, saepe repellat iure nostrum ipsum ad aliquam eos voluptate minus autem quae adipisci enim eveniet officia? Eaque.
           <!--begin::Card body-->
           <div class="row  mb-8">
             <div class="col-md-12">

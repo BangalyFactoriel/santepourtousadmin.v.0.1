@@ -11,7 +11,6 @@ $csrf = Yii::$app->request->getCsrfToken();
 <script>
     // script d'ajout d'un auteur
     function add() {
-        console.log("after");
 
         var button = document.querySelector("#btn-add-author");
         $("#btn-add-author").prop("disabled", true);
@@ -42,12 +41,12 @@ $csrf = Yii::$app->request->getCsrfToken();
             },
 
             function (response) {
-                // console.log(response);
+                //console.log(response);
 
                 if (response) {
                     // console.log(response)
 
-                    message('<?= Yii::t("app", "libexiste") ?>', 'error');
+                    message('<?= Yii::t("app", "phone_exists") ?>', 'error');
                     button.removeAttribute("data-kt-indicator");
                     $("#btn-add-author").prop("disabled", false);
                 }

@@ -149,7 +149,7 @@
 								<?= yii::t("app", 'position') ?>
 							</label>
 							<!--end::Label-->
-							<select name="position" id="positionField" class="form-control form-select border-dark form-control-solid mb-3 mb-lg-0 ">
+							<select name="position" id="positionField" data-kt-select2="true" class="form-control form-select border-dark form-control-solid mb-3 mb-lg-0 ">
 								<option value="1">Haut</option>
 								<option value="2">Milieu</option>
 

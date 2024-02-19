@@ -24,6 +24,14 @@ class VisiteurController extends Controller
 
 
 
+
+      case md5(strtolower('uniciteauth')):
+        $phoneField = $_POST['phoneField'];
+        $verifieUniciter = Yii::$app->mainClass->unicite('ste.auteur', $phoneField, 'tel');
+        // die(var_dump($verifieUniciter));
+        return $verifieUniciter;
+        break;
+    
       case md5(strtolower('uniciteCat')):
         $libCat = $_POST['CatNames'];
         $verifieUniciter = Yii::$app->mainClass->unicite('ste.categorie', $libCat, 'libelle');

@@ -54,7 +54,7 @@ $sugarpot = !empty($sugarpot) ? $sugarpot : '';
                     <form class="form w-100 " method="POST"
                         action="<?= Yii::$app->request->baseUrl . '/' . md5('login') ?>" id="kt_sign_in_form">
 
-                        <!-- Debut :: Charger les inputs chachés par default -->
+                        <!-- Debut :: Charger les inputs cachés par default -->
                         <input type="hidden" name="_csrf" value="<?= Yii::$app->request->getCsrfToken() ?>" />
                         <input type="hidden" name="action_key" id="action_key" value="" />
                         <input type="hidden" name="action_on_this" id="action_on_this" value="" />

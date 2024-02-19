@@ -103,7 +103,7 @@ class AuthController extends Controller {
 						return 22;
 					break;
 				}
-				die(var_dump('Ooops'));
+				// die(var_dump('Ooops'));
 			}
 		} else { 
 			return false; 

@@ -94,7 +94,7 @@
 									class="btn btn-flex btn-sm btn-body btn-color-gray-900 h-35px bg-body fw-bold"
 									data-bs-toggle="modal" data-bs-target="#kt_modal_add_user">
 									<i class="ki-outline ki-plus fs-2"></i>
-									<?= Yii::t("app", 'btnajoutUser') ?>
+									<?= Yii::t("app", 'btn_add_user') ?>
 								</button>
                                 <!--end::Add user-->
                             </div>

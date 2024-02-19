@@ -1,7 +1,7 @@
 <?php
   $userCode = Yii::$app->mainClass->getUser();
   $infousers = yii::$app->mainClass->getuniquedata('ste.utilisateur', $userCode);
-  $info = Yii::$app->mainClass->getTableDataparams('ste.entite');
+ // $info = Yii::$app->mainClass->getTableDataparams('ste.entite');
 
 ?>
 

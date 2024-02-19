@@ -1,7 +1,7 @@
 <?php
   $userCode = Yii::$app->mainClass->getUser();
   $infousers = yii::$app->mainClass->getuniquedata('ste.utilisateur', $userCode);
- // $info = Yii::$app->mainClass->getTableDataparams('ste.entite');
+ $info = Yii::$app->mainClass->getTableDataparams('ste.entite');
 
 ?>
 
@@ -70,12 +70,12 @@
 			<div class="d-flex align-items-center flex-grow-1 flex-lg-grow-1 me-lg-13">
 				<a href="">
 				<?php
-					// if ($info['logo'] == '') {
-					// 	echo '<img alt="Logo" src="' . yii::$app->request->baseUrl . '/web/assets/media/logo/pierredfacto.png" class="h-60px h-lg-60px theme-light-show" />';
+					if ($info['logo'] == '') {
+						echo '<img alt="Logo" src="' . yii::$app->request->baseUrl . '/web/assets/media/logo/pierredfacto.png" class="h-60px h-lg-60px theme-light-show" />';
 
-					// } else {
-					// 	echo '<img alt="Logo" src="' . yii::$app->request->baseUrl . '/web/assets/media/uploads/photo/' . $info['logo'] . '" class="h-60px h-lg-60px theme-light-show" />';
-					// }
+					} else {
+						echo '<img alt="Logo" src="' . yii::$app->request->baseUrl . '/web/assets/media/uploads/photo/' . $info['logo'] . '" class="h-60px h-lg-60px theme-light-show" />';
+					}
 					?>
 				</a>
 			</div>

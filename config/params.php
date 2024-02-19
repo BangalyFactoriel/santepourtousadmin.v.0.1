@@ -54,8 +54,8 @@ return [
    'article' =>'article,article_categories,article_publicite,article_reference,article_article',
    'auteur'=>'auteur,auteur_liste',
    'utilisateur' => 'utilisateur,utilisateur_adduser,utilisateur_addgroupeuser',
-   'config' =>'config,config_config',
+   'config' => 'config,config_params',
 
-   'menuadmin' => 'site_index@article,article_categories,article_publicite,article_reference,article_article,@auteur,auteur_liste,@utilisateur,utilisateur_adduser,utilisateur_addgroupeuser,',
+   'menuadmin' => 'site_index@article,article_categories,article_publicite,article_reference,article_article,@auteur,auteur_liste,@utilisateur,utilisateur_adduser,utilisateur_addgroupeuser,@config,config_params,',
 
 ];

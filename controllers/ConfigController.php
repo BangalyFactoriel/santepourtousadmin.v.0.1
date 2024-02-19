@@ -55,4 +55,41 @@ class ConfigController extends Controller
     }
 
 
+
+    
+    /*********************************************************************************************
+     *                              FONCTION DE parametre
+     * *******************************************************************************************
+     */
+
+     public function actionParams()
+     {
+ 
+ 
+ 
+        
+         $detail = Yii::$app->mainClass->getTableDataparams('ste.entite');
+ 
+         if (Yii::$app->request->isPost) {
+              $photo = $_POST['logo'];
+             if ($_POST['logolast'] != null) {
+                 $uploadFile = $_POST['logolast'];
+                 $link_to_upload = Yii::$app->params["linkToUploadIndividusProfil"];
+                 // yii::$app->request->baseUrl. '/web/mainAssets/media/auth/bg/auth-bg.png'
+                 $file_uni_name = Yii::$app->fileuploadClass->upload_image64($link_to_upload, $uploadFile);
+                 if ($file_uni_name != null) {
+                     $photo = $file_uni_name;
+                 }
+             }
+              yii::$app->configClass->updateentite($_POST['rsocile'],$_POST['sSocial'],$_POST['email'],$photo,$_POST['tel'],$_POST['historique']);
+              $notification = yii::$app->nonSqlClass->afficherNofitication(yii::$app->params['succes'], yii::t('app', 'enrgSuccess'));
+              Yii::$app->session->setFlash('flashmsg', $notification);
+              return $this->redirect(Yii::$app->request->referrer);
+          }
+ 
+         return $this->render('entite/vuePrincipale.php', ['detail' => $detail]);
+ 
+ 
+     }
+
 }

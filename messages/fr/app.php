@@ -96,6 +96,14 @@ return [
     'btnModifier'=>'Modifier',
     'btn_add_user'=>'Ajouter un utilisateur',
     'btn_add_user_group'=>'Ajouter un type d\'utilisateur',
+    'utilisateurNon_valid'=>'Utilisateur non valide',
+    'config_params'=>'Paramètre',
+    'denomination'=>'Dénomination',
+    'tel'=>'Numero de téléphone',
+    'adresse'=>'Adresse',
+    'email'=>'Email',
+    'historique'=>'Historique',
+    'caleve'=>'Calendrier',
 
 
     'mdpEncours'=>'Mots de passe en cours',

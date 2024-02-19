@@ -14,7 +14,8 @@ class AppAsset extends AssetBundle
         'web/assets/plugins/global/plugins.bundle.css',
         'web/assets/css/style.bundle.css',
         'web/assets/plugins/custom/datatables/datatables.bundle.css',
-        'web/assets/plugins//custom/fullcalendar/fullcalendar.bundle.css        '
+        'web/assets/plugins//custom/fullcalendar/fullcalendar.bundle.css ',
+        
     ];
     public $js = [
         'web/assets/plugins/global/plugins.bundle.js',

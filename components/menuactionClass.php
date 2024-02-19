@@ -263,7 +263,10 @@ class menuactionClass extends Component
         break;
 
 
-
+        case 'config':
+          return '<i class="ki-outline ki-chart" aria-hidden="true " style="margin-right :10px;"></i> ';
+  
+          break; 
       case 'article':
           return '<i class="ki-duotone ki-rescue " style="margin-right :10px;">
             <span class="path1"></span>

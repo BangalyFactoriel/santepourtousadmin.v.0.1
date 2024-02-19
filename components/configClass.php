@@ -53,6 +53,20 @@ class ConfigClass extends component
 
   }
 
+
+  public function updateentite($denomination,$adresse,$email,$logo,$tel,$historique)
+  {
+    try {
+      $req = $this->connect->createCommand('UPDATE  ste.entite SET  denomination=:denomination, adresse=:adresse, email=:email, logo=:logo, tel=:tel,historique=:historique')
+        ->bindValues([':denomination'=>$denomination,':adresse'=>$adresse,':email'=>$email,':logo'=>$logo,':tel'=>$tel,':historique'=>$historique])
+        ->execute();
+        return $req;
+    } catch (\Throwable $th) {
+      die($th->getMessage());
+    }
+  }
+
+
   public function updateUsers($code, $identifiant, $motPass)
   {
     $query = null;

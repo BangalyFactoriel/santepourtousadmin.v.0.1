@@ -258,4 +258,53 @@ class articleClass extends Component
 
   }
 
+
+  public function countaricle(){
+    try {
+      $req = $this->connect->createCommand('SELECT count(*) as total FROM ste.article where statut=:statut  ')
+
+        ->bindValue(':statut','1')
+        ->queryOne();
+        if($req) return $req['total'];
+        
+      return 0;
+    } catch (\Throwable $th) {
+      die($th->getMessage());
+    }
+
+  }
+
+
+  
+  public function countauteur(){
+    try {
+      $req = $this->connect->createCommand('SELECT count(*) as total FROM ste.auteur where statut=:statut  ')
+
+        ->bindValue(':statut','1')
+        ->queryOne();
+        if($req) return $req['total'];
+        
+      return 0;
+    } catch (\Throwable $th) {
+      die($th->getMessage());
+    }
+
+  }
+
+
+  public function countpublicite(){
+    try {
+      $req = $this->connect->createCommand('SELECT count(*) as total FROM ste.publicites where statut=:statut  ')
+
+        ->bindValue(':statut','1')
+        ->queryOne();
+        if($req) return $req['total'];
+        
+      return 0;
+    } catch (\Throwable $th) {
+      die($th->getMessage());
+    }
+
+  }
+
 }

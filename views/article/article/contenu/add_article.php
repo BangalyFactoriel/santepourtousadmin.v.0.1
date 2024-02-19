@@ -197,7 +197,7 @@
 											<div class="mb-3">
 												<div class="form-check">
 													<input class="form-check-input" name="typecnetent" type="radio"
-														value="1" id="radio1" />
+														value="2" id="radio1" />
 													<label class="form-check-label" for="radio1">
 														<?= yii::t("app", 'interview') ?>
 													</label>
@@ -208,7 +208,7 @@
 										<div class="col-md-2">
 											<div class="mb-3">
 												<div class="form-check">
-													<input class="form-check-input" name="typecnetent" value="2"
+													<input class="form-check-input" name="typecnetent" value="3"
 														type="radio" id="radio1" />
 													<label class="form-check-label" for="radio1">
 														<?= yii::t("app", 'granddossier') ?>
@@ -220,7 +220,7 @@
 										<div class="col-md-2">
 											<div class="mb-3">
 												<div class="form-check">
-													<input class="form-check-input" name="typecnetent" value="3"
+													<input class="form-check-input" name="typecnetent" value="4"
 														type="radio" id="radio1" />
 													<label class="form-check-label" for="radio1">
 														<?= yii::t("app", 'conseil') ?>

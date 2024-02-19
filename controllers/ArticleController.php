@@ -349,7 +349,7 @@ class ArticleController extends Controller
                 switch ($_POST['action_key']) {
                     case md5('addpublicites'):
                         $code = Yii::$app->nonSqlClass->generateUniq();
-                        $titre = $_POST['title'];
+                        $titre = $_POST['titre'];
                         $contenue = $_POST['content'];
                         $datedebut = $_POST['datedebut'];
                         $datefin = $_POST['datefin'];

@@ -28,7 +28,7 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/x-icon', 'href' => Yii
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@jsuites/cropper/cropper.min.css" type="text/css" />
 
 <head>
-    <title><?= Html::encode($this->title) ?></title>
+    <title><?= Html::encode('Objectif-Santé') ?></title>
     <?php $this->head() ?>
 </head>
 

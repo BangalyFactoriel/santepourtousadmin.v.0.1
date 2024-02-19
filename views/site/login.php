@@ -1,48 +1,55 @@
 <?php
 
-use yii\helpers\Url;
+$this->title = Yii::t('app', 'connexion');
+$userName = !empty($userName) ? $userName : '';
+$motPass = !empty($motPass) ? $motPass : '';
+$sugarpot = !empty($sugarpot) ? $sugarpot : '';
 
-$bgImg = yii::$app->request->baseUrl . '/web/assets/media/misc/auth-screens-1.png';
 ?>
 
 
+
 <div class="d-flex flex-column flex-root" id="kt_app_root">
-    <!--begin::Authentication - Sign-in -->
+
+    <!--end::Header Section-->
     <div class="d-flex flex-column flex-lg-row flex-column-fluid">
         <!--begin::Aside-->
-
-        <div class="d-flex flex-column flex-lg-row-fluid col-lg-9 col-md-7 p-10 order-2 order-lg-1"
-            style="background-image: url(<?= $bgImg ?>)">
+        <div class="d-flex flex-left  flex-column  w-lg-950px bgi-size-cover bgi-position-center mt-n4 order-1 order-lg-2	 mb-3"
+            style="background-image: url(<?= Yii::$app->request->baseUrl ?>/web/assets/media/auth/1.jpg)">
             <!--begin::Content-->
-
-            <div class="d-none d-lg-block text-white fs-base text-center">
-                <div class="mt-15"></div>
-                <!--begin::Title-->
-                <h1 class="d-none d-lg-block text-white fs-2qx fw-bolder text-center mb-7">Fast, Efficient and
-                    Productive</h1>
-                <!--end::Title-->
-                <!--begin::Text-->
-
-                In this kind of post,
-                <a href="#" class="opacity-75-hover text-warning fw-bold me-1">the blogger</a>introduces a person
-                they’ve interviewed
-                <br />and provides some background information about
-                <a href="#" class="opacity-75-hover text-warning fw-bold me-1">the interviewee</a>and their
-                <br />work following this is a transcript of the interview.
+            <div style="width:100%;height:100%;border:1px solid; background-color:rgba(0,0,0,0.6);">
+                <!--begin::Content-->
+                <div class="d-flex flex-column flex-center py-7 py-lg-15 px-5 px-md-15 w-100">
+                    <!--begin::Logo-->
+                    <h1 class="mb-0 mb-lg-12 d-block d-lg-none  text-white">
+                        OBJECTIF SANTÉ GUINÉE
+                    </h1>
+                    <!--end::Logo-->
+                    <!--begin::Image-->
+                    <img class="d-none d-lg-block mx-auto w-275px w-md-50 w-xl-500px mb-10 mb-lg-20"
+                        src="assets/media/misc/auth-screens.png" alt="" />
+                    <!--end::Image-->
+                    <!--begin::Title-->
+                    <h1 class="d-none d-lg-block text-white fs-4qx mt-20 fw-bolder text-center mb-7"> OBJECTIF SANTÉ GUINÉE</h1>
+                    <!--end::Title-->
+                    <!--begin::Text-->
+                    <div class="d-none d-lg-block text-white fs-base text-center fs-3">
+                    "Objectif Santé Guinée" est un site d'actualité dédié à la santé en Guinée. 
+                    Ce portail vise à fournir des informations pertinentes, 
+                    actualisées et fiables sur  <br> les questions de santé qui touchent la population guinéenne. .</div>
+                    <!--end::Text-->
+                </div>
+                <!--end::Content-->
             </div>
-            <!--end::Text-->
-            <!--end::Content-->
+
         </div>
         <!--end::Aside-->
-
         <!--begin::Body-->
-        <div class="d-flex flex-lg-row-fluid w-lg-50 bgi-size-cover bgi-position-center order-1 order-lg-2">
-
+        <div class="d-flex flex-column flex-lg-row-fluid  p-10 order-2 order-lg-2">
             <!--begin::Form-->
             <div class="d-flex flex-center flex-column flex-lg-row-fluid">
                 <!--begin::Wrapper-->
-                <div class="w-lg-500px p-10">
-                    <!--begin::Form-->
+                <div class="w-lg-500px p-md-10">
                     <!--begin::Form-->
                     <form class="form w-100 " method="POST"
                         action="<?= Yii::$app->request->baseUrl . '/' . md5('login') ?>" id="kt_sign_in_form">
@@ -52,65 +59,88 @@ $bgImg = yii::$app->request->baseUrl . '/web/assets/media/misc/auth-screens-1.pn
                         <input type="hidden" name="action_key" id="action_key" value="" />
                         <input type="hidden" name="action_on_this" id="action_on_this" value="" />
                         <input type="hidden" name="sugarpot" id="sugarpot" value="" />
+                        <!--begin::Heading-->
                         <div class="text-center mb-11">
                             <!--begin::Title-->
-                            <h1 class="text-dark fw-bolder mb-3">Authentification</h1>
+                            <h1 class="text-dark fw-bolder mb-3 fs-2x">AUTHENTIFICATION</h1>
                             <!--end::Title-->
                             <!--begin::Subtitle-->
-                            <div class="text-gray-500 fw-semibold fs-6">Votre Compagnie Social</div>
+                            <div class="text-gray-500 fw-semibold fs-6">(Objectif Santé Guinée)</div>
                             <!--end::Subtitle=-->
                         </div>
                         <!--begin::Heading-->
-                        <!--begin::Login options-->
-                        <!--end::Login options-->
 
-                        <!--begin::Input group=-->
-                        <div class="fv-row mb-8">
-                            <!--begin::Username-->
-                            <input type="text" id="usernameField" placeholder="Nom d'utilisateur" name="username"
-                                autocomplete="off" class="form-control bg-transparent" />
-                            <!--end::Username-->
+                        <?= Yii::$app->session->getFlash('flashmsg');
+                        Yii::$app->session->removeFlash('flashmsg'); ?>
+
+
+
+                        <!--<@>---Identifiant---<@>--->
+                        <div class="fv-row mb-8 pt-8 fv-plugins-icon-container">
+
+                            <input type="text" placeholder="Identifiant" name="username" id="username"
+                                value="<?= $userName ?>" autocomplete="off"
+                                class="form-control bg-transparent border-dark">
+                            <div class="fv-plugins-message-container invalid-feedback"></div>
                         </div>
-                        <!--end::Input group=-->
-                        <div class="fv-row mb-3">
+
+                        <!--<@>---Mot de Passe---<@>--->
+                        <div class="fv-row mb-10 fv-plugins-icon-container">
                             <!--begin::Password-->
-                            <input type="password" placeholder="Mot de passe" name="password" autocomplete="off"
-                                class="form-control bg-transparent" />
+                            <input type="password" placeholder="Mot de Passe" name="password" id="password"
+                                value="<?= $motPass ?>" autocomplete="off"
+                                class="form-control bg-transparent border-dark">
                             <!--end::Password-->
+                            <div class="fv-plugins-message-container invalid-feedback"></div>
                         </div>
-                        <!--end::Input group=-->
-                        <!--begin::Wrapper-->
-                        <div class="d-flex flex-stack flex-wrap gap-3 fs-base fw-semibold mb-8">
-                            <div></div>
-                            <!--begin::Link-->
-                            <a href="#" class="link-primary">Mot de passe oublié ?</a>
-                            <!--end::Link-->
-                        </div>
-                        <!--end::Wrapper-->
+
+                        <!--<@>---Sugarpot---<@>--->
+                        <input type="hidden" name="sugarpot" value="<?= $sugarpot ?>"> <!--begin::Submit button-->
+
+
                         <!--begin::Submit button-->
                         <div class="d-grid mb-10">
-                            <button type="submit" id="btn-signin" class="btn btn-primary" onclick="add()">
+                            <a href="<?= yii::$app->request->baseurl . '/' . md5('visiteur_reset') ?>"
+                                class="mb-5 text-end d-none"> Mots de passe oublier ?</a>
+
+                            <a href="javascript:;" id="kt_sign" onclick="connexion()" class="btn btn-primary">
                                 <!--begin::Indicator label-->
-                                <span class="indicator-label">Connexion</span>
+                                <span class="indicator-label">S'AUTHENTIFIER</span>
                                 <!--end::Indicator label-->
                                 <!--begin::Indicator progress-->
-                                <span class="indicator-progress">Veuillez patientez...
+                                <span class="indicator-progress"> Veuillez patienter...
                                     <span class="spinner-border spinner-border-sm align-middle ms-2"></span></span>
                                 <!--end::Indicator progress-->
-                            </button>
+                            </a>
+
+
+
+
                         </div>
                     </form>
-                    <!--end::Form-->
+
                 </div>
                 <!--end::Wrapper-->
             </div>
             <!--end::Form-->
+            <!--begin::Footer-->
+            <div class="w-lg-500px d-flex flex-center px-10 mx-auto">
+
+                <!--begin::Links-->
+                <div class="d-flex  flex-center text-center fw-semibold text-primary fs-base gap-5">
+                    <a href="#" class="text-center" data-bs-toggle="modal" data-bs-target="#coondition">copyright
+                        <i class="fa fa-copyright" aria-hidden="true"></i> Factoriel technologie</a>
+                </div>
+                <!--end::Links-->
+            </div>
+            <!--end::Footer-->
         </div>
         <!--end::Body-->
+
     </div>
     <!--end::Authentication - Sign-in-->
 </div>
-<!--end::Root-->
 
 
-</html>
+
+<?php require('script/login_sc.php'); ?>

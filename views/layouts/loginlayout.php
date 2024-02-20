@@ -48,7 +48,6 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/x-icon', 'href' => Yii
   <?php
   //    Charger quelques elements de validation
   require_once(\Yii::$app->basePath . '/extensions/clientValidator/clientSideScript.php');
-  require_once(\Yii::$app->basePath . '/extensions/msg/popupMsg.php');
   ?>
   
   <script>

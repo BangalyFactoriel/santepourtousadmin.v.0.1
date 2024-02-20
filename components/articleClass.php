@@ -193,8 +193,7 @@ class articleClass extends Component
     try {
       $req = $this->connect->createCommand('SELECT * FROM '.$table.' where 
          	(libelle like :donnerechercher)
-          and statut=:statut
-                ORDER BY id desc ' . $limit)
+          and statut=:statut ' . $limit)
 
         ->bindValues([':donnerechercher' => '%' . $donneeRecherche . '%',':statut'=>'1'])
         ->queryAll();
@@ -220,7 +219,7 @@ class articleClass extends Component
           and statut=:statut
           and  dateajout BETWEEN :datedebut and  :datefin 
 
-                ORDER BY id desc ' . $limit)
+                ' . $limit)
 
         ->bindValues([':donnerechercher' => '%' . $donneeRecherche . '%',':statut'=>'1',':datedebut'=>$datedebut,':datefin'=>$datefin])
         ->queryAll();
@@ -245,9 +244,7 @@ class articleClass extends Component
       $req = $this->connect->createCommand('SELECT * FROM ste.article where 
          	(titre like :donnerechercher or codecategorie like :donnerechercher or codeauter like :donnerechercher) 
           and statut=:statut
-          and  dateajout BETWEEN :datedebut and  :datefin 
-
-                ORDER BY id desc ' . $limit)
+          and  dateajout BETWEEN :datedebut and  :datefin ' . $limit)
 
         ->bindValues([':donnerechercher' => '%' . $donneeRecherche . '%',':statut'=>'1',':datedebut'=>$datedebut,':datefin'=>$datefin])
         ->queryAll();

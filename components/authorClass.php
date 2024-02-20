@@ -80,7 +80,7 @@ class authorClass extends Component
       $req = $this->connect->createCommand('SELECT * FROM '.$table.' where 
          	(tel like :donnerechercher)
           and statut=:statut
-                ORDER BY id desc ' . $limit)
+                ' . $limit)
 
         ->bindValues([':donnerechercher' => '%' . $donneeRecherche . '%',':statut'=>'1'])
         ->queryAll();
